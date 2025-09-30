@@ -31,6 +31,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/components.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     
@@ -67,23 +68,17 @@
 </head>
 <body>
     <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <div class="brand-container">
-                    <div class="brand-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <span class="brand-text">DigitalPro</span>
-                </div>
+            <a class="navbar-brand gradient-text" href="#home">
+                <i class="fas fa-rocket me-2"></i>
+                <span class="brand-text">DigitalPro</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -93,7 +88,7 @@
                     <li class="nav-item">
                         <a class="btn btn-gradient nav-cta" href="#contact">
                             <span>Free SEO Audit</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                     </li>
                 </ul>
@@ -102,1025 +97,604 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-background">
-            <div class="animated-bg">
-                <div class="bg-shape shape-1"></div>
-                <div class="bg-shape shape-2"></div>
-                <div class="bg-shape shape-3"></div>
-                <div class="bg-shape shape-4"></div>
-            </div>
-        </div>
-        
+    <section id="home" class="hero-section-modern">
+        <div class="hero-gradient-bg"></div>
+        <div class="hero-particles"></div>
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
-                    <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
-                        <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
-                            <i class="fas fa-star"></i>
+                    <div class="hero-content-modern" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="hero-badge mb-4">
+                            <span class="badge-icon">✨</span>
                             <span>#1 Digital Marketing Agency</span>
                         </div>
-                        
-                        <h1 class="hero-title">
-                            Boost Your Business with 
-                            <span class="gradient-text">Expert Digital Marketing</span>
+                        <h1 class="hero-title-modern mb-4">
+                            Transform Your Business with
+                            <span class="gradient-text-animated d-block">Expert Digital Marketing</span>
                         </h1>
-                        
-                        <p class="hero-subtitle" data-aos="fade-right" data-aos-delay="400">
-                            Drive more traffic, generate quality leads, and increase revenue with our proven digital marketing strategies. Get results that matter.
+                        <p class="hero-subtitle-modern mb-5" data-aos="fade-right" data-aos-delay="200">
+                            Drive explosive growth with data-driven strategies. Increase traffic by 300%, generate quality leads, and dominate your market with our proven digital solutions.
                         </p>
                         
-                        <div class="hero-stats" data-aos="fade-right" data-aos-delay="600">
-                            <div class="stat-item">
-                                <div class="stat-icon">
+                        <div class="hero-stats-modern mb-5" data-aos="fade-up" data-aos-delay="400">
+                            <div class="stat-item-modern">
+                                <div class="stat-icon-modern">
                                     <i class="fas fa-users"></i>
                                 </div>
-                                <div class="stat-content">
+                                <div class="stat-content-modern">
                                     <span class="stat-number counter" data-count="500">0</span>
-                                    <span class="stat-label">Happy Clients</span>
+                                    <span class="stat-plus">+</span>
+                                    <p class="stat-label">Happy Clients</p>
                                 </div>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-calendar-check"></i>
+                            <div class="stat-item-modern">
+                                <div class="stat-icon-modern">
+                                    <i class="fas fa-trophy"></i>
                                 </div>
-                                <div class="stat-content">
-                                    <span class="stat-number counter" data-count="10">0</span>
-                                    <span class="stat-label">Years Experience</span>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="stat-content">
+                                <div class="stat-content-modern">
                                     <span class="stat-number counter" data-count="95">0</span>
-                                    <span class="stat-label">Success Rate</span>
+                                    <span class="stat-plus">%</span>
+                                    <p class="stat-label">Success Rate</p>
+                                </div>
+                            </div>
+                            <div class="stat-item-modern">
+                                <div class="stat-icon-modern">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-content-modern">
+                                    <span class="stat-number counter" data-count="10">0</span>
+                                    <span class="stat-plus">+</span>
+                                    <p class="stat-label">Years Experience</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="hero-buttons" data-aos="fade-right" data-aos-delay="800">
-                            <a href="#contact" class="btn btn-primary btn-lg">
-                                <span>Get Free SEO Audit</span>
-                                <i class="fas fa-rocket"></i>
+                        <div class="hero-buttons-modern" data-aos="fade-up" data-aos-delay="600">
+                            <a href="#contact" class="btn btn-gradient btn-lg me-3 pulse-btn">
+                                <i class="fas fa-rocket me-2"></i>
+                                <span>Get Started Now</span>
                             </a>
-                            <a href="#services" class="btn btn-outline-light btn-lg">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Our Services</span>
+                            <a href="#services" class="btn btn-glass btn-lg">
+                                <i class="fas fa-play-circle me-2"></i>
+                                <span>View Services</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-lg-6">
-                    <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-                        <div class="floating-cards">
-                            <div class="floating-card card-1" data-aos="zoom-in" data-aos-delay="600">
-                                <div class="card-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-number">300%</span>
-                                    <span class="card-text">Traffic Increase</span>
-                                </div>
+                    <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="floating-card-modern card-1">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
                             </div>
-                            
-                            <div class="floating-card card-2" data-aos="zoom-in" data-aos-delay="800">
-                                <div class="card-icon">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-number">95%</span>
-                                    <span class="card-text">Success Rate</span>
-                                </div>
-                            </div>
-                            
-                            <div class="floating-card card-3" data-aos="zoom-in" data-aos-delay="1000">
-                                <div class="card-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-number">500+</span>
-                                    <span class="card-text">Happy Clients</span>
-                                </div>
-                            </div>
-                            
-                            <div class="floating-card card-4" data-aos="zoom-in" data-aos-delay="1200">
-                                <div class="card-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-number">24/7</span>
-                                    <span class="card-text">Support</span>
-                                </div>
+                            <div class="card-content">
+                                <h4>300%</h4>
+                                <p>Traffic Growth</p>
                             </div>
                         </div>
-                        
-                        <div class="hero-image-container">
-                            <div class="hero-main-visual">
-                                <div class="dashboard-mockup">
-                                    <div class="mockup-header">
-                                        <div class="mockup-dots">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="mockup-content">
-                                        <div class="chart-container">
-                                            <canvas id="heroChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="floating-card-modern card-2">
+                            <div class="card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>5x ROI</h4>
+                                <p>Average Return</p>
                             </div>
                         </div>
+                        <div class="floating-card-modern card-3">
+                            <div class="card-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Top Rated</h4>
+                                <p>Agency 2025</p>
+                            </div>
+                        </div>
+                        <div class="hero-circle-decoration"></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
+        <div class="scroll-indicator-modern">
+            <div class="mouse-scroll">
+                <div class="mouse-wheel"></div>
             </div>
-            <span>Scroll Down</span>
+            <p>Scroll Down</p>
         </div>
     </section>
 
-    <!-- Services Overview Section -->
-    <section id="services" class="services-section">
-        <div class="section-bg">
-            <div class="bg-pattern"></div>
-        </div>
-        
+    <!-- Services Section -->
+    <section id="services" class="services-section-modern py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb-5">
-                    <div class="section-header" data-aos="fade-up">
-                        <span class="section-badge">Our Services</span>
-                        <h2 class="section-title">
-                            Comprehensive <span class="gradient-text">Digital Solutions</span>
-                        </h2>
-                        <p class="section-subtitle">
-                            We offer a complete suite of digital marketing services to grow your business online and achieve measurable results.
-                        </p>
+                    <div class="section-badge" data-aos="fade-up">
+                        <span>Our Expertise</span>
                     </div>
+                    <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                        Comprehensive <span class="gradient-text">Digital Solutions</span>
+                    </h2>
+                    <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                        Full-service digital marketing to accelerate your growth
+                    </p>
                 </div>
             </div>
-            
-            <div class="row services-grid">
+            <div class="row g-4">
                 <!-- SEO Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon-modern gradient-1">
+                            <i class="fas fa-search"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h3 class="service-title">SEO Optimization</h3>
-                        </div>
-                        <p class="service-description">
-                            Boost your website ranking with our proven SEO strategies. Get more organic traffic and qualified leads.
+                        <h3 class="service-title-modern">SEO Optimization</h3>
+                        <p class="service-description-modern">
+                            Dominate search rankings with cutting-edge SEO strategies. Get organic traffic that converts.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Keyword Research & Analysis</li>
-                            <li><i class="fas fa-check"></i> On-Page SEO Optimization</li>
-                            <li><i class="fas fa-check"></i> Technical SEO Audit</li>
-                            <li><i class="fas fa-check"></i> Local SEO & Google My Business</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Keyword Research</li>
+                            <li><i class="fas fa-check-circle"></i> On-page SEO</li>
+                            <li><i class="fas fa-check-circle"></i> Technical SEO</li>
+                            <li><i class="fas fa-check-circle"></i> Local SEO</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#seo" class="btn btn-outline-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$499/mo</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#seo" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- PPC Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-badge">Most Popular</div>
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern featured" data-aos="fade-up" data-aos-delay="200">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="service-icon-modern gradient-2">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <h3 class="service-title">PPC Advertising</h3>
-                        </div>
-                        <p class="service-description">
-                            Get instant results with targeted Google Ads campaigns. Maximize ROI with our expert management.
+                        <h3 class="service-title-modern">PPC Advertising</h3>
+                        <p class="service-description-modern">
+                            Maximize ROI with targeted Google Ads campaigns. Get instant results and measurable growth.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Google Ads Management</li>
-                            <li><i class="fas fa-check"></i> Facebook & Instagram Ads</li>
-                            <li><i class="fas fa-check"></i> Campaign Optimization</li>
-                            <li><i class="fas fa-check"></i> ROI Tracking & Reporting</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Google Ads</li>
+                            <li><i class="fas fa-check-circle"></i> Facebook Ads</li>
+                            <li><i class="fas fa-check-circle"></i> Campaign Optimization</li>
+                            <li><i class="fas fa-check-circle"></i> ROI Tracking</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#ppc" class="btn btn-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$799/mo</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#ppc" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- SMO Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon-modern gradient-3">
+                            <i class="fas fa-share-alt"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-share-alt"></i>
-                            </div>
-                            <h3 class="service-title">Social Media Marketing</h3>
-                        </div>
-                        <p class="service-description">
-                            Build brand awareness and engage with your audience across all social media platforms.
+                        <h3 class="service-title-modern">Social Media Marketing</h3>
+                        <p class="service-description-modern">
+                            Build a powerful brand presence. Engage audiences and drive conversions across all platforms.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Content Creation & Strategy</li>
-                            <li><i class="fas fa-check"></i> Community Management</li>
-                            <li><i class="fas fa-check"></i> Paid Social Advertising</li>
-                            <li><i class="fas fa-check"></i> Analytics & Insights</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Content Creation</li>
+                            <li><i class="fas fa-check-circle"></i> Community Management</li>
+                            <li><i class="fas fa-check-circle"></i> Paid Social Ads</li>
+                            <li><i class="fas fa-check-circle"></i> Analytics & Reporting</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#smo" class="btn btn-outline-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$399/mo</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#smo" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Web Development Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <!-- Web Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon-modern gradient-4">
+                            <i class="fas fa-code"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="service-title">Web Development</h3>
-                        </div>
-                        <p class="service-description">
-                            Create stunning, responsive websites that convert visitors into customers and drive business growth.
+                        <h3 class="service-title-modern">Web Development</h3>
+                        <p class="service-description-modern">
+                            Create stunning, high-performance websites that convert visitors into loyal customers.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Responsive Web Design</li>
-                            <li><i class="fas fa-check"></i> E-commerce Solutions</li>
-                            <li><i class="fas fa-check"></i> CMS Development</li>
-                            <li><i class="fas fa-check"></i> Performance Optimization</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Responsive Design</li>
+                            <li><i class="fas fa-check-circle"></i> E-commerce Solutions</li>
+                            <li><i class="fas fa-check-circle"></i> CMS Development</li>
+                            <li><i class="fas fa-check-circle"></i> Performance Optimization</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#web-dev" class="btn btn-outline-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$1999</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#web-dev" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Content Marketing Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <!-- Content Marketing -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-icon-modern gradient-5">
+                            <i class="fas fa-pen-nib"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-pen-nib"></i>
-                            </div>
-                            <h3 class="service-title">Content Marketing</h3>
-                        </div>
-                        <p class="service-description">
-                            Engage your audience with compelling content that drives traffic, builds trust, and increases conversions.
+                        <h3 class="service-title-modern">Content Marketing</h3>
+                        <p class="service-description-modern">
+                            Engage your audience with compelling content that drives traffic and builds authority.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Blog Writing & SEO</li>
-                            <li><i class="fas fa-check"></i> Video Content Creation</li>
-                            <li><i class="fas fa-check"></i> Infographic Design</li>
-                            <li><i class="fas fa-check"></i> Content Strategy Planning</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Blog Writing</li>
+                            <li><i class="fas fa-check-circle"></i> Video Content</li>
+                            <li><i class="fas fa-check-circle"></i> Infographics</li>
+                            <li><i class="fas fa-check-circle"></i> Content Strategy</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#content" class="btn btn-outline-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$299/mo</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#content" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Email Marketing Service -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-background">
-                            <div class="service-pattern"></div>
+                <!-- Email Marketing -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-icon-modern gradient-6">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h3 class="service-title">Email Marketing</h3>
-                        </div>
-                        <p class="service-description">
-                            Build relationships and drive sales with targeted email campaigns and automated marketing funnels.
+                        <h3 class="service-title-modern">Email Marketing</h3>
+                        <p class="service-description-modern">
+                            Build relationships and drive sales with targeted campaigns and smart automation.
                         </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Campaign Design & Copy</li>
-                            <li><i class="fas fa-check"></i> List Building & Management</li>
-                            <li><i class="fas fa-check"></i> Marketing Automation</li>
-                            <li><i class="fas fa-check"></i> A/B Testing & Analytics</li>
+                        <ul class="service-features-modern">
+                            <li><i class="fas fa-check-circle"></i> Campaign Design</li>
+                            <li><i class="fas fa-check-circle"></i> List Management</li>
+                            <li><i class="fas fa-check-circle"></i> Automation</li>
+                            <li><i class="fas fa-check-circle"></i> Performance Tracking</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="services.html#email" class="btn btn-outline-primary">
-                                <span>Learn More</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="service-price">
-                                <span>Starting at</span>
-                                <strong>$199/mo</strong>
-                            </div>
-                        </div>
+                        <a href="services.html#email" class="btn btn-service">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
+    <!-- About Section -->
+    <section id="about" class="about-section-modern py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-content" data-aos="fade-right">
-                        <div class="section-header">
-                            <span class="section-badge">About DigitalPro</span>
-                            <h2 class="section-title">
-                                Why Choose <span class="gradient-text">Our Agency?</span>
-                            </h2>
-                        </div>
-                        
-                        <p class="about-description">
-                            With over 10 years of experience in digital marketing, we've helped 500+ businesses achieve their online goals. Our data-driven approach ensures maximum ROI for every campaign.
-                        </p>
-                        
-                        <div class="about-features">
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-                                <div class="feature-icon">
-                                    <i class="fas fa-award"></i>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-decoration"></div>
+                        <div class="glass-card-modern">
+                            <div class="glass-card-stats">
+                                <div class="stat-box-glass">
+                                    <span class="stat-number-glass counter" data-count="500">0</span>
+                                    <span class="stat-plus">+</span>
+                                    <p>Happy Clients</p>
                                 </div>
-                                <div class="feature-content">
-                                    <h4>Award-Winning Agency</h4>
-                                    <p>Recognized as the top digital marketing agency for 3 consecutive years by industry leaders.</p>
+                                <div class="stat-box-glass">
+                                    <span class="stat-number-glass counter" data-count="1200">0</span>
+                                    <span class="stat-plus">+</span>
+                                    <p>Projects Done</p>
                                 </div>
-                            </div>
-                            
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-                                <div class="feature-icon">
-                                    <i class="fas fa-users"></i>
+                                <div class="stat-box-glass">
+                                    <span class="stat-number-glass counter" data-count="10">0</span>
+                                    <span class="stat-plus">+</span>
+                                    <p>Years Experience</p>
                                 </div>
-                                <div class="feature-content">
-                                    <h4>Expert Team</h4>
-                                    <p>Google & Facebook certified professionals with expertise in all digital marketing channels.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                                <div class="feature-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Proven Results</h4>
-                                    <p>Average 300% increase in organic traffic and 250% boost in lead generation within 6 months.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="about-cta" data-aos="fade-up" data-aos-delay="400">
-                            <a href="about.html" class="btn btn-primary">
-                                <span>Learn More About Us</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <div class="about-contact">
-                                <div class="contact-avatar">
-                                    <img src="assets/images/team/ceo.webp" alt="CEO">
-                                </div>
-                                <div class="contact-info">
-                                    <span>Talk to our CEO</span>
-                                    <strong>+1-555-123-4567</strong>
+                                <div class="stat-box-glass">
+                                    <span class="stat-number-glass counter" data-count="95">0</span>
+                                    <span class="stat-plus">%</span>
+                                    <p>Success Rate</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="about-visual" data-aos="fade-left">
-                        <div class="stats-grid">
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="stat-icon">
-                                    <i class="fas fa-smile"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <span class="stat-number counter" data-count="500">0</span>
-                                    <span class="stat-label">Happy Clients</span>
-                                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="section-badge mb-4">
+                        <span>Why Choose Us</span>
+                    </div>
+                    <h2 class="section-title-modern mb-4">
+                        The <span class="gradient-text">Digital Partner</span> You've Been Searching For
+                    </h2>
+                    <p class="section-description-modern mb-4">
+                        With 10+ years of proven excellence, we've helped 500+ businesses achieve explosive online growth. Our data-driven approach ensures maximum ROI for every campaign.
+                    </p>
+                    <div class="features-list-modern">
+                        <div class="feature-item-modern">
+                            <div class="feature-icon-modern gradient-1">
+                                <i class="fas fa-award"></i>
                             </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="stat-icon">
-                                    <i class="fas fa-project-diagram"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <span class="stat-number counter" data-count="1200">0</span>
-                                    <span class="stat-label">Projects Completed</span>
-                                </div>
-                            </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="stat-icon">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <span class="stat-number counter" data-count="10">0</span>
-                                    <span class="stat-label">Years Experience</span>
-                                </div>
-                            </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="stat-icon">
-                                    <i class="fas fa-thumbs-up"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <span class="stat-number counter" data-count="95">0</span>
-                                    <span class="stat-label">Success Rate %</span>
-                                </div>
+                            <div class="feature-content-modern">
+                                <h4>Award-Winning Team</h4>
+                                <p>Recognized as #1 agency for 3 consecutive years</p>
                             </div>
                         </div>
-                        
-                        <div class="certifications">
-                            <h4>Our Certifications</h4>
-                            <div class="cert-badges">
-                                <div class="cert-badge">
-                                    <img src="assets/images/brands/google-partner.webp" alt="Google Partner">
-                                </div>
-                                <div class="cert-badge">
-                                    <img src="assets/images/brands/facebook-partner.webp" alt="Facebook Partner">
-                                </div>
-                                <div class="cert-badge">
-                                    <img src="assets/images/brands/microsoft-certified.webp" alt="Microsoft Certified">
-                                </div>
+                        <div class="feature-item-modern">
+                            <div class="feature-icon-modern gradient-2">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <div class="feature-content-modern">
+                                <h4>Expert Professionals</h4>
+                                <p>Certified specialists in all digital channels</p>
+                            </div>
+                        </div>
+                        <div class="feature-item-modern">
+                            <div class="feature-icon-modern gradient-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-content-modern">
+                                <h4>Proven Results</h4>
+                                <p>300% average traffic increase in 6 months</p>
                             </div>
                         </div>
                     </div>
+                    <a href="about.html" class="btn btn-gradient btn-lg mt-4">
+                        <span>Discover Our Story</span>
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="section-bg">
-            <div class="bg-pattern"></div>
-        </div>
-        
+    <section class="testimonials-section-modern py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb-5">
-                    <div class="section-header" data-aos="fade-up">
-                        <span class="section-badge">Testimonials</span>
-                        <h2 class="section-title">
-                            What Our <span class="gradient-text">Clients Say</span>
-                        </h2>
-                        <p class="section-subtitle">
-                            Don't just take our word for it - hear from our satisfied clients who've achieved remarkable results
-                        </p>
+                    <div class="section-badge" data-aos="fade-up">
+                        <span>Client Success Stories</span>
                     </div>
+                    <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                        What Our <span class="gradient-text">Clients Say</span>
+                    </h2>
+                    <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                        Real results from real businesses
+                    </p>
                 </div>
             </div>
-            
-            <div class="testimonials-carousel" data-aos="fade-up" data-aos-delay="300">
-                <div class="testimonial-track">
-                    <div class="testimonial-item">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <p class="testimonial-text">
-                                "DigitalPro transformed our online presence completely. Our website traffic increased by 400% and leads by 250% in just 6 months! The team's expertise and dedication is unmatched."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="assets/images/testimonials/client-1.webp" alt="John Smith">
-                                </div>
-                                <div class="author-info">
-                                    <h4>John Smith</h4>
-                                    <span>CEO, Tech Solutions Inc.</span>
-                                    <div class="company-logo">
-                                        <i class="fas fa-building"></i>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card-modern">
+                        <div class="stars-modern">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                    </div>
-                    
-                    <div class="testimonial-item">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
+                        <p class="testimonial-text-modern">
+                            "DigitalPro completely transformed our online presence. Our website traffic increased by 400% and leads by 250% in just 6 months. Best investment we've ever made!"
+                        </p>
+                        <div class="testimonial-author-modern">
+                            <div class="author-avatar">
+                                <img src="assets/images/testimonials/client-1.webp" alt="John Smith">
                             </div>
-                            <p class="testimonial-text">
-                                "The best investment we made for our business. Their PPC campaigns generated 5x ROI consistently. The team is professional and results-driven. Highly recommended!"
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="assets/images/testimonials/client-2.webp" alt="Sarah Johnson">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sarah Johnson</h4>
-                                    <span>Marketing Director, Fashion Hub</span>
-                                    <div class="company-logo">
-                                        <i class="fas fa-shopping-bag"></i>
-                                    </div>
-                                </div>
+                            <div class="author-info-modern">
+                                <h4>John Smith</h4>
+                                <p>CEO, Tech Solutions Inc.</p>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-item">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <p class="testimonial-text">
-                                "Outstanding SEO results! We went from page 5 to #1 rankings for our main keywords in just 4 months. Our organic traffic grew by 600%. Amazing work!"
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="assets/images/testimonials/client-3.webp" alt="Michael Chen">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Michael Chen</h4>
-                                    <span>Founder, GreenTech Solutions</span>
-                                    <div class="company-logo">
-                                        <i class="fas fa-leaf"></i>
-                                    </div>
-                                </div>
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonials-navigation">
-                    <button class="nav-btn prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="testimonial-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card-modern">
+                        <div class="stars-modern">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text-modern">
+                            "The ROI from their PPC campaigns is incredible - consistently 5x return. Their team is professional, responsive, and truly understands digital marketing. Highly recommended!"
+                        </p>
+                        <div class="testimonial-author-modern">
+                            <div class="author-avatar">
+                                <img src="assets/images/testimonials/client-2.webp" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info-modern">
+                                <h4>Sarah Johnson</h4>
+                                <p>Marketing Director, Fashion Hub</p>
+                            </div>
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
                     </div>
-                    <button class="nav-btn next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-background">
-            <div class="cta-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-            </div>
-        </div>
-        
+    <section class="cta-section-modern py-5">
+        <div class="cta-gradient-bg"></div>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <div class="cta-content" data-aos="fade-right">
-                        <div class="cta-badge">
-                            <i class="fas fa-fire"></i>
-                            <span>Limited Time Offer</span>
-                        </div>
-                        <h2 class="cta-title">Ready to <span class="gradient-text">Boost Your Business?</span></h2>
-                        <p class="cta-description">
-                            Get a comprehensive SEO audit and discover how we can help you dominate your competition online. Limited slots available this month!
-                        </p>
-                        <div class="cta-features">
-                            <div class="cta-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Free 30-page SEO Report</span>
-                            </div>
-                            <div class="cta-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Competitor Analysis</span>
-                            </div>
-                            <div class="cta-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Growth Strategy Session</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h2 class="cta-title-modern">Ready to Dominate Your Market?</h2>
+                    <p class="cta-text-modern">Get a free SEO audit and discover how we can 10x your online presence</p>
                 </div>
-                
-                <div class="col-lg-4">
-                    <div class="cta-action" data-aos="fade-left">
-                        <div class="cta-card">
-                            <div class="card-header">
-                                <h3>Get Your Free Audit</h3>
-                                <div class="price-tag">
-                                    <span class="old-price">$497</span>
-                                    <span class="new-price">FREE</span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <a href="#contact" class="btn btn-primary btn-lg w-100">
-                                    <span>Claim Free Audit Now</span>
-                                    <i class="fas fa-rocket"></i>
-                                </a>
-                                <div class="cta-contact">
-                                    <div class="contact-option">
-                                        <i class="fas fa-phone"></i>
-                                        <span>Or call: +1-555-123-4567</span>
-                                    </div>
-                                    <div class="contact-option">
-                                        <i class="fas fa-clock"></i>
-                                        <span>Response within 24 hours</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4 text-end" data-aos="fade-left">
+                    <a href="#contact" class="btn btn-light-modern btn-lg pulse-btn">
+                        <i class="fas fa-rocket me-2"></i>
+                        <span>Get Free Audit</span>
+                    </a>
+                    <div class="cta-phone-modern mt-3">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+1-555-123-4567</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section-modern py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb-5">
-                    <div class="section-header" data-aos="fade-up">
-                        <span class="section-badge">Get Started</span>
-                        <h2 class="section-title">
-                            Get Your Free <span class="gradient-text">SEO Audit</span>
-                        </h2>
-                        <p class="section-subtitle">
-                            Fill out the form below and we'll analyze your website for free. Get actionable insights to improve your online presence.
-                        </p>
+                    <div class="section-badge" data-aos="fade-up">
+                        <span>Get in Touch</span>
                     </div>
+                    <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                        Get Your Free <span class="gradient-text">SEO Audit</span>
+                    </h2>
+                    <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                        Let's discuss how we can grow your business
+                    </p>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="300">
-                        <form id="contactForm" class="contact-form">
-                            <div class="form-header">
-                                <h3>Start Your Digital Success Journey</h3>
-                                <p>Tell us about your business and goals. We'll create a custom strategy for you.</p>
-                            </div>
-                            
-                            <div class="form-steps">
-                                <div class="step active">
-                                    <span class="step-number">1</span>
-                                    <span class="step-label">Contact Info</span>
-                                </div>
-                                <div class="step">
-                                    <span class="step-number">2</span>
-                                    <span class="step-label">Business Details</span>
-                                </div>
-                                <div class="step">
-                                    <span class="step-number">3</span>
-                                    <span class="step-label">Goals</span>
+                    <form id="contactForm" class="contact-form-modern glass-form" data-aos="fade-up" data-aos-delay="300">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <input type="text" class="form-control-modern" id="firstName" name="firstName" required>
+                                    <label class="form-label-modern">First Name</label>
                                 </div>
                             </div>
-                            
-                            <div class="form-content">
-                                <!-- Step 1: Contact Information -->
-                                <div class="form-step active" data-step="1">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">First Name *</label>
-                                            <input type="text" class="form-control" id="firstName" name="firstName" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Last Name *</label>
-                                            <input type="text" class="form-control" id="lastName" name="lastName" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Email Address *</label>
-                                            <input type="email" class="form-control" id="email" name="email" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Phone Number</label>
-                                            <input type="tel" class="form-control" id="phone" name="phone">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Step 2: Business Details -->
-                                <div class="form-step" data-step="2">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Company Name</label>
-                                            <input type="text" class="form-control" id="company" name="company">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Website URL</label>
-                                            <input type="url" class="form-control" id="website" name="website" placeholder="https://yourwebsite.com">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Industry</label>
-                                            <select class="form-control" id="industry" name="industry">
-                                                <option value="">Select Industry</option>
-                                                <option value="ecommerce">E-commerce</option>
-                                                <option value="healthcare">Healthcare</option>
-                                                <option value="realestate">Real Estate</option>
-                                                <option value="technology">Technology</option>
-                                                <option value="finance">Finance</option>
-                                                <option value="education">Education</option>
-                                                <option value="restaurants">Restaurants</option>
-                                                <option value="other">Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Monthly Budget</label>
-                                            <select class="form-control" id="budget" name="budget">
-                                                <option value="">Select Budget Range</option>
-                                                <option value="500-1000">$500 - $1,000</option>
-                                                <option value="1000-2500">$1,000 - $2,500</option>
-                                                <option value="2500-5000">$2,500 - $5,000</option>
-                                                <option value="5000+">$5,000+</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Step 3: Goals and Services -->
-                                <div class="form-step" data-step="3">
-                                    <div class="row">
-                                        <div class="col-12 mb-3">
-                                            <label class="form-label">Which services interest you? *</label>
-                                            <div class="service-checkboxes">
-                                                <label class="service-checkbox">
-                                                    <input type="checkbox" name="services[]" value="seo">
-                                                    <span class="checkmark">
-                                                        <i class="fas fa-search"></i>
-                                                    </span>
-                                                    <span class="service-name">SEO Optimization</span>
-                                                </label>
-                                                <label class="service-checkbox">
-                                                    <input type="checkbox" name="services[]" value="ppc">
-                                                    <span class="checkmark">
-                                                        <i class="fas fa-bullseye"></i>
-                                                    </span>
-                                                    <span class="service-name">PPC Advertising</span>
-                                                </label>
-                                                <label class="service-checkbox">
-                                                    <input type="checkbox" name="services[]" value="smo">
-                                                    <span class="checkmark">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </span>
-                                                    <span class="service-name">Social Media</span>
-                                                </label>
-                                                <label class="service-checkbox">
-                                                    <input type="checkbox" name="services[]" value="web-dev">
-                                                    <span class="checkmark">
-                                                        <i class="fas fa-code"></i>
-                                                    </span>
-                                                    <span class="service-name">Web Development</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <label class="form-label">Tell us about your goals and challenges</label>
-                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Describe your current challenges, goals, and what success looks like for your business..."></textarea>
-                                        </div>
-                                    </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <input type="text" class="form-control-modern" id="lastName" name="lastName" required>
+                                    <label class="form-label-modern">Last Name</label>
                                 </div>
                             </div>
-                            
-                            <div class="form-navigation">
-                                <button type="button" class="btn btn-outline-secondary prev-step" style="display: none;">
-                                    <i class="fas fa-chevron-left"></i>
-                                    <span>Previous</span>
-                                </button>
-                                <button type="button" class="btn btn-primary next-step">
-                                    <span>Next Step</span>
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                                <button type="submit" class="btn btn-primary btn-lg submit-form" style="display: none;">
-                                    <span>Get My Free SEO Audit</span>
-                                    <i class="fas fa-paper-plane"></i>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <input type="email" class="form-control-modern" id="email" name="email" required>
+                                    <label class="form-label-modern">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <input type="tel" class="form-control-modern" id="phone" name="phone">
+                                    <label class="form-label-modern">Phone Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <input type="url" class="form-control-modern" id="website" name="website">
+                                    <label class="form-label-modern">Website URL</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group-modern">
+                                    <select class="form-control-modern" id="service" name="service" required>
+                                        <option value="">Select Service</option>
+                                        <option value="seo">SEO Optimization</option>
+                                        <option value="ppc">PPC Advertising</option>
+                                        <option value="smo">Social Media Marketing</option>
+                                        <option value="web-dev">Web Development</option>
+                                        <option value="content">Content Marketing</option>
+                                        <option value="email">Email Marketing</option>
+                                    </select>
+                                    <label class="form-label-modern">Service Interested</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="form-group-modern">
+                                    <textarea class="form-control-modern" id="message" name="message" rows="5"></textarea>
+                                    <label class="form-label-modern">Tell us about your project</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-gradient btn-lg submit-btn">
+                                    <span>Get Free SEO Audit</span>
+                                    <i class="fas fa-paper-plane ms-2"></i>
                                 </button>
                             </div>
-                            
-                            <div class="form-note">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Your information is 100% secure and will never be shared with third parties.</span>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer-section">
-        <div class="footer-background">
-            <div class="footer-pattern"></div>
-        </div>
-        
+    <footer class="footer-section-modern">
+        <div class="footer-gradient-bg"></div>
         <div class="container">
-            <div class="footer-content">
-                <div class="row">
-                    <div class="col-lg-4 mb-4">
-                        <div class="footer-about">
-                            <div class="footer-logo">
-                                <div class="brand-container">
-                                    <div class="brand-icon">
-                                        <i class="fas fa-rocket"></i>
-                                    </div>
-                                    <span class="brand-text">DigitalPro</span>
-                                </div>
-                            </div>
-                            <p class="footer-description">
-                                Your trusted partner for digital marketing success. We help businesses grow online with proven strategies and exceptional results.
-                            </p>
-                            <div class="social-links">
-                                <a href="#" class="social-link facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="social-link twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="social-link linkedin">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="social-link instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="social-link youtube">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-about-modern">
+                        <h3 class="footer-logo-modern gradient-text">
+                            <i class="fas fa-rocket me-2"></i>
+                            DigitalPro
+                        </h3>
+                        <p>Your trusted partner for digital marketing excellence. We transform businesses with data-driven strategies and proven results.</p>
+                        <div class="social-links-modern">
+                            <a href="#" class="social-link-modern">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link-modern">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link-modern">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link-modern">
+                                <i class="fab fa-instagram"></i>
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-2 col-md-6 mb-4">
-                        <div class="footer-links">
-                            <h4>Services</h4>
-                            <ul>
-                                <li><a href="services.html#seo">SEO Optimization</a></li>
-                                <li><a href="services.html#ppc">PPC Advertising</a></li>
-                                <li><a href="services.html#smo">Social Media</a></li>
-                                <li><a href="services.html#web-dev">Web Development</a></li>
-                                <li><a href="services.html#content">Content Marketing</a></li>
-                                <li><a href="services.html#email">Email Marketing</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links-modern">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html#seo">SEO</a></li>
+                            <li><a href="services.html#ppc">PPC</a></li>
+                            <li><a href="services.html#smo">Social Media</a></li>
+                            <li><a href="services.html#web-dev">Web Design</a></li>
+                        </ul>
                     </div>
-                    
-                    <div class="col-lg-2 col-md-6 mb-4">
-                        <div class="footer-links">
-                            <h4>Company</h4>
-                            <ul>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="careers.html">Careers</a></li>
-                                <li><a href="partners.html">Partners</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links-modern">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
                     </div>
-                    
-                    <div class="col-lg-4 mb-4">
-                        <div class="footer-contact">
-                            <h4>Get In Touch</h4>
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <span>123 Business Street</span>
-                                        <span>New York, NY 10001</span>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <span>+1-555-123-4567</span>
-                                        <span>Mon-Fri 9AM-6PM EST</span>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <span>info@digitalpro.com</span>
-                                        <span>24/7 Support Available</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="newsletter">
-                                <h5>Stay Updated</h5>
-                                <p>Subscribe to our newsletter for digital marketing tips and industry insights.</p>
-                                <form class="newsletter-form">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Enter your email">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fas fa-paper-plane"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-contact-modern">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-item-modern">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Business Street, New York, NY 10001</span>
+                        </div>
+                        <div class="contact-item-modern">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1-555-123-4567</span>
+                        </div>
+                        <div class="contact-item-modern">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@digitalpro.com</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p>&copy; 2025 DigitalPro Agency. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="footer-bottom-links">
-                            <a href="privacy.html">Privacy Policy</a>
-                            <a href="terms.html">Terms of Service</a>
-                            <a href="cookies.html">Cookie Policy</a>
-                        </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom-modern text-center">
+                        <p>&copy; 2025 DigitalPro Agency. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
                     </div>
                 </div>
             </div>
@@ -1128,8 +702,8 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
+    <button id="backToTop" class="back-to-top-modern">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript Files -->
@@ -1143,9 +717,10 @@
     <script>
         AOS.init({
             duration: 1000,
-            easing: 'ease-in-out',
+            easing: 'ease-out-cubic',
             once: true,
-            offset: 100
+            offset: 50,
+            delay: 100
         });
     </script>
 </body>
