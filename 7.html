@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Plan Builder - Digital Marketing Pro Agency</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #764ba2;
+            --secondary: #4facfe;
+            --dark: #1a1f36;
+            --dark-light: #f5f7fa;
+            --light: #FFFFFF;
+            --gray: #718096;
+            --success: #4CAF50;
+            --danger: #F44336;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 50%, #e8ecf1 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Initial View */
+        .initial-view {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding: 6px 16px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .divider-part {
+            height: 2px;
+            border-radius: 1px;
+        }
+
+        .divider-part.short {
+            width: 20px;
+            background: linear-gradient(90deg, transparent, var(--primary));
+        }
+
+        .divider-part.long {
+            width: 40px;
+            background: var(--primary);
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .subtitle-text {
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Service Selection */
+        .service-selection {
+            padding: 80px 0 50px;
+            display: none;
+        }
+
+        .service-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .service-category {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-category:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+        }
+
+        .service-category.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.02));
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .service-category.selected .service-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .service-category h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-category p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: var(--dark);
+        }
+
+        .service-features li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /* Service Details */
+        .service-details {
+            padding: 80px 0 50px;
+            display: none;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-button {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-option {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-option.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.02));
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .option-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .option-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .option-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .option-features {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .option-features li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            color: var(--dark);
+        }
+
+        .option-features li i {
+            color: var(--success);
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        /* Quantity Controls */
+        .quantity-controls {
+            background-color: var(--light);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .quantity-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .quantity-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .quantity-option {
+            margin-bottom: 20px;
+        }
+
+        .quantity-option-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .quantity-option-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .quantity-option-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: scale(1.1);
+        }
+
+        .quantity-value {
+            min-width: 50px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark);
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background-color: var(--light);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            display: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-description {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            background-color: var(--light);
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .optional {
+            color: var(--gray);
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        /* Sticky Total Button */
+        .sticky-total {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            border-radius: 50px;
+            padding: 15px 30px;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            display: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .total-amount {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .pay-btn {
+            background-color: var(--light);
+            color: var(--primary);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pay-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .service-categories, .service-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-total {
+                width: calc(100% - 40px);
+                justify-content: space-between;
+            }
+
+            .quantity-options {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Initial View -->
+    <div class="initial-view" id="initial-view">
+        <div class="container">
+            <div class="section-tag">Build Your Perfect Plan</div>
+            <h1 class="section-title">MAKE YOUR CUSTOM PLAN</h1>
+            <div class="section-divider">
+                <div class="divider-part short"></div>
+                <div class="divider-part long"></div>
+                <div class="divider-part short"></div>
+            </div>
+            <p class="subtitle-text">
+                Select the services you need, customize them to fit your requirements, and get an instant quote for your digital marketing plan.
+            </p>
+            <button class="btn btn-primary" id="start-plan-btn">
+                <i class="fas fa-magic" style="margin-right: 10px;"></i>
+                Make Your Custom Plan
+            </button>
+        </div>
+    </div>
+
+    <!-- Service Selection -->
+    <div class="service-selection" id="service-selection">
+        <div class="container">
+            <div class="service-header">
+                <div class="section-tag">Step 1: Choose Services</div>
+                <h1 class="section-title">SELECT YOUR SERVICES</h1>
+                <div class="section-divider">
+                    <div class="divider-part short"></div>
+                    <div class="divider-part long"></div>
+                    <div class="divider-part short"></div>
+                </div>
+            </div>
+
+            <div class="service-categories">
+                <!-- SEO -->
+                <div class="service-category" data-service="seo">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Search Engine Optimization (SEO)</h3>
+                    <p>Improve your website's visibility in search engines and drive organic traffic.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Keyword Research & Optimization</li>
+                        <li><i class="fas fa-check"></i> On-Page & Technical SEO</li>
+                        <li><i class="fas fa-check"></i> Content Strategy</li>
+                        <li><i class="fas fa-check"></i> Performance Tracking</li>
+                    </ul>
+                </div>
+
+                <!-- SMO -->
+                <div class="service-category" data-service="smo">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Social Media Optimization (SMO)</h3>
+                    <p>Enhance your social media presence and engage with your audience.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Profile Optimization</li>
+                        <li><i class="fas fa-check"></i> Content Strategy</li>
+                        <li><i class="fas fa-check"></i> Engagement Management</li>
+                        <li><i class="fas fa-check"></i> Performance Analytics</li>
+                    </ul>
+                </div>
+
+                <!-- PPC -->
+                <div class="service-category" data-service="ppc">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Pay Per Click (PPC)</h3>
+                    <p>Drive targeted traffic to your website through paid advertising campaigns.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Campaign Setup & Management</li>
+                        <li><i class="fas fa-check"></i> Keyword Research</li>
+                        <li><i class="fas fa-check"></i> Ad Copy Creation</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Web Development -->
+                <div class="service-category" data-service="web-dev">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Create responsive, fast, and user-friendly websites that convert visitors.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Website Development</li>
+                        <li><i class="fas fa-check"></i> E-commerce Solutions</li>
+                        <li><i class="fas fa-check"></i> CMS Integration</li>
+                        <li><i class="fas fa-check"></i> Website Maintenance</li>
+                    </ul>
+                </div>
+
+                <!-- Web Design -->
+                <div class="service-category" data-service="web-design">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Create visually appealing and user-centric designs for your digital presence.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> UI/UX Design</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Brand Integration</li>
+                        <li><i class="fas fa-check"></i> Prototyping & Wireframing</li>
+                    </ul>
+                </div>
+
+                <!-- Branding -->
+                <div class="service-category" data-service="branding">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Branding</h3>
+                    <p>Develop a strong brand identity that resonates with your target audience.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logo Design</li>
+                        <li><i class="fas fa-check"></i> Brand Guidelines</li>
+                        <li><i class="fas fa-check"></i> Visual Identity</li>
+                        <li><i class="fas fa-check"></i> Brand Strategy</li>
+                    </ul>
+                </div>
+
+                <!-- Content Writing -->
+                <div class="service-category" data-service="content">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Content Writing</h3>
+                    <p>Create compelling content that engages your audience and drives conversions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Blog Posts & Articles</li>
+                        <li><i class="fas fa-check"></i> Website Copy</li>
+                        <li><i class="fas fa-check"></i> Social Media Content</li>
+                        <li><i class="fas fa-check"></i> Email Marketing</li>
+                    </ul>
+                </div>
+
+                <!-- Digital Advertising -->
+                <div class="service-category" data-service="digital-ads">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Digital Advertising</h3>
+                    <p>Reach your target audience across multiple digital channels.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Social Media Ads</li>
+                        <li><i class="fas fa-check"></i> Display Advertising</li>
+                        <li><i class="fas fa-check"></i> Retargeting Campaigns</li>
+                        <li><i class="fas fa-check"></i> Campaign Optimization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-primary" id="continue-to-details">
+                    Continue to Customize
+                    <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details -->
+    <div class="service-details" id="service-details">
+        <div class="container">
+            <button class="back-button" id="back-to-selection">
+                <i class="fas fa-arrow-left"></i> Back to Services
+            </button>
+
+            <div class="service-header">
+                <div class="section-tag">Step 2: Customize Your Plan</div>
+                <h1 class="section-title" id="service-details-title">CUSTOMIZE YOUR PLAN</h1>
+                <div class="section-divider">
+                    <div class="divider-part short"></div>
+                    <div class="divider-part long"></div>
+                    <div class="divider-part short"></div>
+                </div>
+            </div>
+
+            <div class="service-options" id="service-options-container">
+                <!-- Options will be dynamically loaded here -->
+            </div>
+
+            <div class="quantity-controls" id="quantity-controls">
+                <h2 class="quantity-title">
+                    <i class="fas fa-sliders-h" style="margin-right: 10px;"></i>
+                    Customize Your Requirements
+                </h2>
+                <div class="quantity-options" id="quantity-options-container">
+                    <!-- Quantity controls will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <div class="contact-form-section" id="contact-form-section">
+                <h2 class="form-title">Tell Us About Your Project</h2>
+                <p class="form-description">Fill out the form below and we'll get back to you with a detailed proposal.</p>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name *</label>
+                        <input type="text" class="form-control" id="name" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" class="form-control" id="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" class="form-control" id="phone" required placeholder="+1 (555) 000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company Name <span class="optional">(optional)</span></label>
+                        <input type="text" class="form-control" id="company" placeholder="Your Company">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="website">Website URL <span class="optional">(optional)</span></label>
+                        <input type="url" class="form-control" id="website" placeholder="https://yourwebsite.com">
+                    </div>
+
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label class="form-label" for="message">Project Details & Requirements *</label>
+                        <textarea class="form-control" id="message" required placeholder="Tell us about your project..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="grid-column: 1 / -1; text-align: center;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+                            Submit Your Requirements
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Total Button -->
+    <div class="sticky-total" id="sticky-total">
+        <div class="total-amount">Total: $<span id="total-cost">0</span></div>
+        <button class="pay-btn" id="proceed-to-pay">
+            <i class="fas fa-credit-card" style="margin-right: 8px;"></i>
+            Pay to Proceed
+        </button>
+    </div>
+
+    <script>
+        // Service data with pricing and options (keeping the same JavaScript from original file)
+        const serviceData = {
+            'seo': {
+                title: 'Search Engine Optimization (SEO)',
+                description: 'Improve your website visibility in search engines',
+                options: [
+                    {
+                        name: 'Basic SEO',
+                        price: 200,
+                        description: 'Essential SEO optimization for small websites',
+                        features: [
+                            '5 Keywords Tracking',
+                            'Basic On-Page SEO',
+                            'Monthly Reports',
+                            'Email Support'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Keywords', basePrice: 10, value: 5, min: 5, max: 50 },
+                            { name: 'Optimization Pages', basePrice: 15, value: 3, min: 3, max: 20 }
+                        ]
+                    },
+                    {
+                        name: 'Standard SEO',
+                        price: 450,
+                        description: 'Comprehensive SEO for growing businesses',
+                        features: [
+                            '25 Keywords Tracking',
+                            'On-Page & Technical SEO',
+                            'Link Building',
+                            'Content Optimization',
+                            'Weekly Reports',
+                            'Dedicated Manager'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Keywords', basePrice: 15, value: 25, min: 25, max: 100 },
+                            { name: 'Optimization Pages', basePrice: 20, value: 10, min: 10, max: 50 },
+                            { name: 'Backlinks', basePrice: 25, value: 5, min: 5, max: 50 }
+                        ]
+                    },
+                    {
+                        name: 'Premium SEO',
+                        price: 700,
+                        description: 'Advanced SEO strategy for competitive markets',
+                        features: [
+                            '50 Keywords Tracking',
+                            'Advanced Technical SEO',
+                            'Competitor Analysis',
+                            'Content Creation',
+                            'Local SEO',
+                            'Daily Monitoring',
+                            'Priority Support'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Keywords', basePrice: 18, value: 50, min: 50, max: 200 },
+                            { name: 'Optimization Pages', basePrice: 25, value: 20, min: 20, max: 100 },
+                            { name: 'Backlinks', basePrice: 30, value: 10, min: 10, max: 100 }
+                        ]
+                    }
+                ]
+            },
+            'smo': {
+                title: 'Social Media Optimization (SMO)',
+                description: 'Enhance your social media presence and engagement',
+                options: [
+                    {
+                        name: 'Basic SMO',
+                        price: 300,
+                        description: 'Essential social media management',
+                        features: [
+                            '2 Social Platforms',
+                            '10 Posts per Month',
+                            'Basic Analytics',
+                            'Monthly Reports'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Platforms', basePrice: 50, value: 2, min: 2, max: 5 },
+                            { name: 'Additional Posts', basePrice: 5, value: 10, min: 10, max: 50 }
+                        ]
+                    },
+                    {
+                        name: 'Standard SMO',
+                        price: 500,
+                        description: 'Comprehensive social media strategy',
+                        features: [
+                            '4 Social Platforms',
+                            '20 Posts per Month',
+                            'Engagement Management',
+                            'Advanced Analytics',
+                            'Weekly Reports'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Platforms', basePrice: 75, value: 4, min: 4, max: 8 },
+                            { name: 'Additional Posts', basePrice: 8, value: 20, min: 20, max: 100 }
+                        ]
+                    },
+                    {
+                        name: 'Premium SMO',
+                        price: 800,
+                        description: 'Full-service social media management',
+                        features: [
+                            '6 Social Platforms',
+                            '40 Posts per Month',
+                            'Community Management',
+                            'Influencer Outreach',
+                            'Content Creation',
+                            'Daily Monitoring'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Platforms', basePrice: 100, value: 6, min: 6, max: 10 },
+                            { name: 'Additional Posts', basePrice: 10, value: 40, min: 40, max: 200 }
+                        ]
+                    }
+                ]
+            },
+            'ppc': {
+                title: 'Pay Per Click (PPC)',
+                description: 'Drive targeted traffic through paid advertising',
+                options: [
+                    {
+                        name: 'Basic PPC',
+                        price: 350,
+                        description: 'Essential PPC campaign management',
+                        features: [
+                            '1 Advertising Platform',
+                            'Campaign Setup',
+                            'Basic Keyword Research',
+                            'Monthly Optimization',
+                            'Performance Reports'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.1, value: 1000, min: 500, max: 5000, isBudget: true },
+                            { name: 'Additional Platforms', basePrice: 150, value: 1, min: 1, max: 3 }
+                        ]
+                    },
+                    {
+                        name: 'Standard PPC',
+                        price: 600,
+                        description: 'Comprehensive PPC management',
+                        features: [
+                            '2 Advertising Platforms',
+                            'Advanced Keyword Research',
+                            'Ad Copy Testing',
+                            'Bi-weekly Optimization',
+                            'Detailed Reports'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.08, value: 2500, min: 1000, max: 10000, isBudget: true },
+                            { name: 'Additional Platforms', basePrice: 200, value: 2, min: 2, max: 5 }
+                        ]
+                    },
+                    {
+                        name: 'Premium PPC',
+                        price: 900,
+                        description: 'Advanced PPC strategy and optimization',
+                        features: [
+                            '3 Advertising Platforms',
+                            'Competitor Analysis',
+                            'Conversion Optimization',
+                            'Weekly Optimization',
+                            'Custom Reports',
+                            'Dedicated Account Manager'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.06, value: 5000, min: 2500, max: 20000, isBudget: true },
+                            { name: 'Additional Platforms', basePrice: 250, value: 3, min: 3, max: 8 }
+                        ]
+                    }
+                ]
+            },
+            'web-dev': {
+                title: 'Web Development',
+                description: 'Create responsive and functional websites',
+                options: [
+                    {
+                        name: 'Basic Website',
+                        price: 500,
+                        description: 'Simple website with essential features',
+                        features: [
+                            'Up to 5 Pages',
+                            'Responsive Design',
+                            'Contact Form',
+                            'Basic SEO Setup',
+                            '1 Month Support'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Pages', basePrice: 50, value: 5, min: 5, max: 20 }
+                        ]
+                    },
+                    {
+                        name: 'Business Website',
+                        price: 1200,
+                        description: 'Professional website for businesses',
+                        features: [
+                            'Up to 15 Pages',
+                            'Custom Design',
+                            'CMS Integration',
+                            'Advanced SEO',
+                            '3 Months Support'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Pages', basePrice: 75, value: 15, min: 15, max: 50 }
+                        ]
+                    },
+                    {
+                        name: 'E-commerce Website',
+                        price: 2500,
+                        description: 'Full-featured online store',
+                        features: [
+                            'Product Catalog',
+                            'Shopping Cart',
+                            'Payment Gateway',
+                            'Inventory Management',
+                            '6 Months Support'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Products', basePrice: 10, value: 50, min: 50, max: 500 },
+                            { name: 'Additional Pages', basePrice: 100, value: 20, min: 20, max: 100 }
+                        ]
+                    }
+                ]
+            },
+            'web-design': {
+                title: 'Web Design',
+                description: 'Create visually appealing and user-friendly designs',
+                options: [
+                    {
+                        name: 'Basic Design',
+                        price: 400,
+                        description: 'Clean and functional website design',
+                        features: [
+                            'UI/UX Design',
+                            'Responsive Layout',
+                            'Color Scheme',
+                            'Typography'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Pages', basePrice: 75, value: 5, min: 5, max: 20 }
+                        ]
+                    },
+                    {
+                        name: 'Professional Design',
+                        price: 800,
+                        description: 'Custom design with advanced features',
+                        features: [
+                            'Custom UI/UX Design',
+                            'Interactive Elements',
+                            'Brand Integration',
+                            'Prototyping'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Pages', basePrice: 100, value: 10, min: 10, max: 50 }
+                        ]
+                    },
+                    {
+                        name: 'Premium Design',
+                        price: 1500,
+                        description: 'High-end design with extensive customization',
+                        features: [
+                            'Advanced UI/UX Design',
+                            'Animation & Effects',
+                            'Brand Guidelines',
+                            'Multiple Revisions'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Pages', basePrice: 150, value: 15, min: 15, max: 100 }
+                        ]
+                    }
+                ]
+            },
+            'branding': {
+                title: 'Branding',
+                description: 'Develop a strong and recognizable brand identity',
+                options: [
+                    {
+                        name: 'Basic Branding',
+                        price: 500,
+                        description: 'Essential brand identity elements',
+                        features: [
+                            'Logo Design',
+                            'Color Palette',
+                            'Typography',
+                            'Basic Guidelines'
+                        ]
+                    },
+                    {
+                        name: 'Comprehensive Branding',
+                        price: 1200,
+                        description: 'Complete brand identity system',
+                        features: [
+                            'Logo Design',
+                            'Color Palette',
+                            'Typography',
+                            'Brand Guidelines',
+                            'Business Cards',
+                            'Social Media Kit'
+                        ]
+                    },
+                    {
+                        name: 'Enterprise Branding',
+                        price: 2500,
+                        description: 'Extensive brand system for large organizations',
+                        features: [
+                            'Logo Design',
+                            'Complete Visual Identity',
+                            'Brand Guidelines',
+                            'Stationery Design',
+                            'Marketing Materials',
+                            'Brand Strategy'
+                        ]
+                    }
+                ]
+            },
+            'content': {
+                title: 'Content Writing',
+                description: 'Create engaging and persuasive content',
+                options: [
+                    {
+                        name: 'Basic Content',
+                        price: 300,
+                        description: 'Essential content creation services',
+                        features: [
+                            '5 Blog Posts',
+                            'Website Copy',
+                            'Basic SEO',
+                            '1 Revision'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Articles', basePrice: 50, value: 5, min: 5, max: 50 }
+                        ]
+                    },
+                    {
+                        name: 'Standard Content',
+                        price: 600,
+                        description: 'Comprehensive content strategy',
+                        features: [
+                            '10 Blog Posts',
+                            'Website Copy',
+                            'Social Media Content',
+                            'Advanced SEO',
+                            '2 Revisions'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Articles', basePrice: 45, value: 10, min: 10, max: 100 }
+                        ]
+                    },
+                    {
+                        name: 'Premium Content',
+                        price: 1000,
+                        description: 'Full-service content marketing',
+                        features: [
+                            '20 Blog Posts',
+                            'Website Copy',
+                            'Social Media Content',
+                            'Email Marketing',
+                            'Content Strategy',
+                            'Unlimited Revisions'
+                        ],
+                        quantityOptions: [
+                            { name: 'Additional Articles', basePrice: 40, value: 20, min: 20, max: 200 }
+                        ]
+                    }
+                ]
+            },
+            'digital-ads': {
+                title: 'Digital Advertising',
+                description: 'Reach your audience across multiple digital channels',
+                options: [
+                    {
+                        name: 'Basic Advertising',
+                        price: 400,
+                        description: 'Essential digital advertising management',
+                        features: [
+                            '1 Advertising Channel',
+                            'Campaign Setup',
+                            'Basic Targeting',
+                            'Monthly Reports'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.12, value: 1500, min: 500, max: 5000, isBudget: true },
+                            { name: 'Additional Channels', basePrice: 200, value: 1, min: 1, max: 3 }
+                        ]
+                    },
+                    {
+                        name: 'Standard Advertising',
+                        price: 700,
+                        description: 'Comprehensive digital advertising',
+                        features: [
+                            '2 Advertising Channels',
+                            'Advanced Targeting',
+                            'A/B Testing',
+                            'Bi-weekly Optimization'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.1, value: 3000, min: 1000, max: 10000, isBudget: true },
+                            { name: 'Additional Channels', basePrice: 250, value: 2, min: 2, max: 5 }
+                        ]
+                    },
+                    {
+                        name: 'Premium Advertising',
+                        price: 1100,
+                        description: 'Advanced multi-channel advertising',
+                        features: [
+                            '3 Advertising Channels',
+                            'Advanced Analytics',
+                            'Retargeting',
+                            'Weekly Optimization',
+                            'Custom Reporting'
+                        ],
+                        quantityOptions: [
+                            { name: 'Ad Spend Budget', basePrice: 0.08, value: 6000, min: 2500, max: 20000, isBudget: true },
+                            { name: 'Additional Channels', basePrice: 300, value: 3, min: 3, max: 8 }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Global variables
+        let selectedServices = [];
+        let selectedOptions = {};
+        let quantityValues = {};
+
+        // DOM elements
+        const initialView = document.getElementById('initial-view');
+        const serviceSelection = document.getElementById('service-selection');
+        const serviceDetails = document.getElementById('service-details');
+        const startPlanBtn = document.getElementById('start-plan-btn');
+        const continueToDetailsBtn = document.getElementById('continue-to-details');
+        const backToSelectionBtn = document.getElementById('back-to-selection');
+        const serviceOptionsContainer = document.getElementById('service-options-container');
+        const quantityControls = document.getElementById('quantity-controls');
+        const quantityOptionsContainer = document.getElementById('quantity-options-container');
+        const contactFormSection = document.getElementById('contact-form-section');
+        const stickyTotal = document.getElementById('sticky-total');
+        const totalCostElement = document.getElementById('total-cost');
+        const proceedToPayBtn = document.getElementById('proceed-to-pay');
+        const serviceDetailsTitle = document.getElementById('service-details-title');
+        const contactForm = document.getElementById('contact-form');
+
+        // Event Listeners
+        startPlanBtn.addEventListener('click', showServiceSelection);
+        continueToDetailsBtn.addEventListener('click', showServiceDetails);
+        backToSelectionBtn.addEventListener('click', showServiceSelectionFromDetails);
+        proceedToPayBtn.addEventListener('click', showContactForm);
+
+        // Service category selection
+        document.querySelectorAll('.service-category').forEach(category => {
+            category.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                
+                const service = this.getAttribute('data-service');
+                if (this.classList.contains('selected')) {
+                    if (!selectedServices.includes(service)) {
+                        selectedServices.push(service);
+                    }
+                } else {
+                    const index = selectedServices.indexOf(service);
+                    if (index > -1) {
+                        selectedServices.splice(index, 1);
+                    }
+                }
+                
+                updateStickyTotal();
+            });
+        });
+
+        // Show service selection view
+        function showServiceSelection() {
+            initialView.style.display = 'none';
+            serviceSelection.style.display = 'block';
+            serviceDetails.style.display = 'none';
+            stickyTotal.style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show service details view
+        function showServiceDetails() {
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service to continue.');
+                return;
+            }
+            
+            serviceSelection.style.display = 'none';
+            serviceDetails.style.display = 'block';
+            
+            // Update title
+            if (selectedServices.length === 1) {
+                serviceDetailsTitle.textContent = `CUSTOMIZE ${serviceData[selectedServices[0]].title.toUpperCase()}`;
+            } else {
+                serviceDetailsTitle.textContent = 'CUSTOMIZE YOUR SELECTED SERVICES';
+            }
+            
+            // Load service options
+            loadServiceOptions();
+            
+            // Show quantity controls if any service has them
+            const hasQuantityOptions = selectedServices.some(service => {
+                const serviceOptions = serviceData[service].options;
+                return serviceOptions.some(option => option.quantityOptions && option.quantityOptions.length > 0);
+            });
+            
+            if (hasQuantityOptions) {
+                quantityControls.style.display = 'block';
+                loadQuantityOptions();
+            } else {
+                quantityControls.style.display = 'none';
+            }
+            
+            // Show contact form section
+            contactFormSection.style.display = 'block';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show service selection from details view
+        function showServiceSelectionFromDetails() {
+            serviceDetails.style.display = 'none';
+            serviceSelection.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show contact form
+        function showContactForm() {
+            // Scroll to contact form
+            contactFormSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Load service options based on selected services
+        function loadServiceOptions() {
+            serviceOptionsContainer.innerHTML = '';
+            
+            selectedServices.forEach(service => {
+                const serviceInfo = serviceData[service];
+                
+                serviceInfo.options.forEach(option => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'service-option';
+                    optionElement.setAttribute('data-service', service);
+                    optionElement.setAttribute('data-option', option.name);
+                    
+                    optionElement.innerHTML = `
+                        <div class="option-header">
+                            <div class="option-name">${option.name}</div>
+                            <div class="option-price">$${option.price}</div>
+                        </div>
+                        <div class="option-description">${option.description}</div>
+                        <ul class="option-features">
+                            ${option.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                    `;
+                    
+                    optionElement.addEventListener('click', function() {
+                        this.classList.toggle('selected');
+                        
+                        const service = this.getAttribute('data-service');
+                        const optionName = this.getAttribute('data-option');
+                        
+                        if (this.classList.contains('selected')) {
+                            selectedOptions[service] = optionName;
+                        } else {
+                            delete selectedOptions[service];
+                        }
+                        
+                        updateStickyTotal();
+                        
+                        // Update quantity options if this service has them
+                        if (option.quantityOptions && option.quantityOptions.length > 0) {
+                            loadQuantityOptions();
+                        }
+                    });
+                    
+                    serviceOptionsContainer.appendChild(optionElement);
+                });
+            });
+        }
+
+        // Load quantity options based on selected services and options
+        function loadQuantityOptions() {
+            quantityOptionsContainer.innerHTML = '';
+            
+            selectedServices.forEach(service => {
+                if (selectedOptions[service]) {
+                    const serviceInfo = serviceData[service];
+                    const selectedOption = serviceInfo.options.find(option => option.name === selectedOptions[service]);
+                    
+                    if (selectedOption.quantityOptions) {
+                        selectedOption.quantityOptions.forEach(qOption => {
+                            const optionId = `${service}-${selectedOption.name}-${qOption.name.replace(/\s+/g, '-')}`;
+                            
+                            // Initialize quantity value if not set
+                            if (!quantityValues[optionId]) {
+                                quantityValues[optionId] = qOption.value;
+                            }
+                            
+                            const quantityElement = document.createElement('div');
+                            quantityElement.className = 'quantity-option';
+                            quantityElement.innerHTML = `
+                                <div class="quantity-option-header">
+                                    <div class="quantity-option-name">${qOption.name}</div>
+                                    <div class="quantity-option-price">+$<span id="${optionId}-price">${qOption.isBudget ? (quantityValues[optionId] * qOption.basePrice).toFixed(0) : (quantityValues[optionId] * qOption.basePrice)}</span>${qOption.isBudget ? '' : '/each'}</div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button class="quantity-btn" id="${optionId}-decrease">-</button>
+                                    <div class="quantity-value" id="${optionId}-value">${quantityValues[optionId]}</div>
+                                    <button class="quantity-btn" id="${optionId}-increase">+</button>
+                                </div>
+                            `;
+                            
+                            quantityOptionsContainer.appendChild(quantityElement);
+                            
+                            // Add event listeners for quantity buttons
+                            document.getElementById(`${optionId}-decrease`).addEventListener('click', function() {
+                                if (quantityValues[optionId] > qOption.min) {
+                                    quantityValues[optionId]--;
+                                    updateQuantityDisplay(optionId, qOption);
+                                    updateStickyTotal();
+                                }
+                            });
+                            
+                            document.getElementById(`${optionId}-increase`).addEventListener('click', function() {
+                                if (quantityValues[optionId] < qOption.max) {
+                                    quantityValues[optionId]++;
+                                    updateQuantityDisplay(optionId, qOption);
+                                    updateStickyTotal();
+                                }
+                            });
+                        });
+                    }
+                }
+            });
+        }
+
+        // Update quantity display
+        function updateQuantityDisplay(optionId, qOption) {
+            document.getElementById(`${optionId}-value`).textContent = quantityValues[optionId];
+            document.getElementById(`${optionId}-price`).textContent = qOption.isBudget ? 
+                (quantityValues[optionId] * qOption.basePrice).toFixed(0) : 
+                (quantityValues[optionId] * qOption.basePrice);
+        }
+
+        // Update sticky total
+        function updateStickyTotal() {
+            let total = 0;
+            
+            // Add base prices of selected options
+            Object.keys(selectedOptions).forEach(service => {
+                const serviceInfo = serviceData[service];
+                const selectedOption = serviceInfo.options.find(option => option.name === selectedOptions[service]);
+                total += selectedOption.price;
+                
+                // Add quantity-based prices
+                if (selectedOption.quantityOptions) {
+                    selectedOption.quantityOptions.forEach(qOption => {
+                        const optionId = `${service}-${selectedOption.name}-${qOption.name.replace(/\s+/g, '-')}`;
+                        if (quantityValues[optionId]) {
+                            total += quantityValues[optionId] * qOption.basePrice;
+                        }
+                    });
+                }
+            });
+            
+            totalCostElement.textContent = Math.round(total);
+        }
+
+        // Form submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            alert('Thank you for your submission! We will contact you soon with a detailed proposal.');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset selections
+            selectedServices = [];
+            selectedOptions = {};
+            quantityValues = {};
+            
+            // Go back to initial view
+            serviceDetails.style.display = 'none';
+            initialView.style.display = 'flex';
+            stickyTotal.style.display = 'none';
+            
+            // Reset UI
+            document.querySelectorAll('.service-category').forEach(category => {
+                category.classList.remove('selected');
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize
+        updateStickyTotal();
+    </script>
+</body>
+</html>

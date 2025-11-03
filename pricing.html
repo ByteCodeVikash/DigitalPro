@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Digital Marketing Pro Agency</title>
+    
+    <!-- CSS Files -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+   PRICING PAGE - MODERN UI WITH BEAUTIFUL COLORS
+   ============================================ */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 50%, #e8ecf1 100%);
+    color: #1a1f36;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+.pricing-page {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+/* Section Header */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-badge-pricing {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #667eea;
+    margin-bottom: 15px;
+    padding: 6px 16px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.pricing-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+
+.pricing-subtitle {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.pricing-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.divider-line {
+    height: 2px;
+    border-radius: 1px;
+}
+
+.divider-line-1 {
+    width: 20px;
+    background: linear-gradient(90deg, transparent, #667eea);
+}
+
+.divider-line-2 {
+    width: 40px;
+    background: #667eea;
+}
+
+.divider-line-3 {
+    width: 20px;
+    background: linear-gradient(90deg, #667eea, transparent);
+}
+
+/* Billing Toggle */
+.billing-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.billing-label {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    color: #1a1f36;
+}
+
+.billing-label.active {
+    color: #667eea;
+}
+
+.billing-label.inactive {
+    color: #718096;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: rgba(102, 126, 234, 0.15);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.toggle-switch.active {
+    background: rgba(102, 126, 234, 0.25);
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.toggle-slider.yearly {
+    left: 33px;
+}
+
+.discount-badge {
+    background: #4CAF50;
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+/* Service Categories */
+.service-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    border: 2px solid rgba(102, 126, 234, 0.15);
+    min-width: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.category-card.active {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05));
+    border-color: #667eea;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    transition: all 0.3s ease;
+}
+
+.category-card.active .category-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.category-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1f36;
+}
+
+/* Pricing Cards */
+.pricing-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.pricing-card {
+    position: relative;
+    padding: 30px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 2px solid rgba(102, 126, 234, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 280px;
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
+.pricing-card.popular {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.02));
+    border-color: #667eea;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.plan-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1f36;
+}
+
+.pricing-card.popular .plan-name {
+    color: #667eea;
+}
+
+.plan-icon {
+    font-size: 24px;
+    color: #667eea;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.feature-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    color: #4a5568;
+}
+
+.feature-check {
+    color: #4CAF50;
+    margin-right: 10px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.get-started-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    font-size: 1rem;
+}
+
+.pricing-card.popular .get-started-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+}
+
+.get-started-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+}
+
+.pricing-card.popular .get-started-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Fixed Buttons */
+.fixed-btn {
+    position: fixed;
+    top: 120px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #FFFFFF;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.fixed-btn:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: #ffffff;
+}
+
+.fixed-btn-left {
+    left: 20px;
+}
+
+.fixed-btn-right {
+    right: 20px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+}
+
+.fixed-btn-right:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.6);
+}
+
+/* Modal Popup */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #667eea;
+    background: #ffffff;
+    color: #667eea;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2001;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+.modal-header {
+    padding: 25px 30px 20px;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.02));
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-subtitle {
+    color: #4a5568;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.modal-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
+
+.modal-body {
+    padding: 25px 30px;
+    overflow-y: auto;
+    flex: 1;
+    background: #fafbfc;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.service-category {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #667eea;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.08);
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #4a5568;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-item i {
+    color: #4CAF50;
+    margin-right: 10px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 2px solid rgba(102, 126, 234, 0.1);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.02));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-cancel {
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    background: transparent;
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: scale(1.05);
+}
+
+.btn-pay {
+    padding: 12px 30px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-pay:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .pricing-page {
+        padding-top: 80px;
+    }
+
+    .fixed-btn {
+        top: 90px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .pricing-cards-row {
+        justify-content: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .fixed-btn {
+        position: static;
+        width: 100%;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .fixed-buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    .pricing-title {
+        font-size: 2rem;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: 20px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    .modal-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-cancel,
+    .btn-pay {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Include your navbar here -->
+    <nav class="navbar navbar-expand-lg fixed-top modern-navbar" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="Rankriseusa Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav-secondary" href="pricing.html">
+                            <span>Pricing Plan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav-primary" href="contact.html">
+                            <span>Free Audit</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons-container d-none d-lg-block">
+        <a href="7.html" class="fixed-btn fixed-btn-left">
+            <i class="fas fa-magic"></i>
+            Design Your Custom Plan
+        </a>
+        <a href="WebsiteCostCalculator.html" class="fixed-btn fixed-btn-right">
+            <i class="fas fa-calculator"></i>
+            Calculate Website Cost
+        </a>
+    </div>
+
+    <!-- Main Pricing Content -->
+    <div class="pricing-page">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="pricing-header" data-aos="fade-up">
+                <div class="section-badge-pricing">Transparent Pricing</div>
+                <h1 class="pricing-title">Choose Your Perfect Plan</h1>
+                <p class="pricing-subtitle">
+                    Flexible pricing plans designed to grow with your business
+                </p>
+                <div class="pricing-divider">
+                    <div class="divider-line divider-line-1"></div>
+                    <div class="divider-line divider-line-2"></div>
+                    <div class="divider-line divider-line-3"></div>
+                </div>
+            </div>
+
+            <!-- Billing Toggle -->
+            <div class="billing-toggle-container" data-aos="fade-up" data-aos-delay="100">
+                <span class="billing-label active" id="monthlyLabel">Monthly</span>
+                <div class="toggle-switch" id="billingToggle" onclick="toggleBilling()">
+                    <div class="toggle-slider" id="toggleSlider"></div>
+                </div>
+                <span class="billing-label inactive" id="yearlyLabel">
+                    Yearly 
+                    <span class="discount-badge">15% OFF</span>
+                </span>
+            </div>
+
+            <!-- Mobile Fixed Buttons -->
+            <div class="d-lg-none" style="padding: 0 20px; margin-bottom: 20px;">
+                <a href="7.html" class="fixed-btn" style="position: static; width: 100%; margin-bottom: 10px; justify-content: center;">
+                    <i class="fas fa-magic"></i>
+                    Design Your Custom Plan
+                </a>
+                <a href="WebsiteCostCalculator.html" class="fixed-btn fixed-btn-right" style="position: static; width: 100%; justify-content: center;">
+                    <i class="fas fa-calculator"></i>
+                    Calculate Website Cost
+                </a>
+            </div>
+
+            <!-- Service Categories -->
+            <div class="service-categories" data-aos="fade-up" data-aos-delay="200">
+                <div class="category-card active" onclick="selectCategory('seo')">
+                    <div class="category-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="category-name">SEO</div>
+                </div>
+                <div class="category-card" onclick="selectCategory('smo')">
+                    <div class="category-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="category-name">SMO</div>
+                </div>
+                <div class="category-card" onclick="selectCategory('ppc')">
+                    <div class="category-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <div class="category-name">PPC</div>
+                </div>
+                <div class="category-card" onclick="selectCategory('web-dev')">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="category-name">Web Dev</div>
+                </div>
+                <div class="category-card" onclick="selectCategory('content')">
+                    <div class="category-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <div class="category-name">Content</div>
+                </div>
+                <div class="category-card" onclick="selectCategory('branding')">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="category-name">Branding</div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards Container -->
+            <div id="pricingCardsContainer">
+                <!-- Cards will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h3 class="modal-title" id="modalPlanName"></h3>
+                        <p class="modal-subtitle">All Services Included - Complete Package Details</p>
+                    </div>
+                    <div class="text-end">
+                        <div class="modal-price" id="modalPrice"></div>
+                        <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);" id="modalPricePeriod"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="footer-note">
+                    <i class="fas fa-shield-alt" style="margin-right: 8px; color: #4CAF50;"></i>
+                    Have any query? Ask here
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button class="btn-pay" onclick="proceedToPayment()">
+                        <i class="fas fa-credit-card" style="margin-right: 8px;"></i>
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+    <!-- Add your footer component here -->
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // State Management
+        let billingCycle = 'monthly';
+        let selectedCategory = 'seo';
+        let selectedPlan = null;
+
+        // Pricing Data
+        const pricingData = {
+            seo: [
+                {
+                    name: 'SEO Starter Plan',
+                    icon: 'fas fa-rocket',
+                    monthlyPrice: 200,
+                    yearlyPrice: 2040,
+                    popular: false,
+                    features: [
+                        '5 Keywords Tracking',
+                        'Basic On-Page SEO',
+                        'Monthly Reports',
+                        'Email Support'
+                    ],
+                    services: [
+                        {
+                            title: 'SEO ANALYSIS',
+                            icon: 'fas fa-chart-bar',
+                            items: ['Keyword Research & Analysis', 'Baseline Ranking Check', 'Duplicate Content Check', 'Google Penalty Check']
+                        },
+                        {
+                            title: 'ON-PAGE OPTIMIZATION',
+                            icon: 'fas fa-cogs',
+                            items: ['Title Tag Optimization', 'META Tags Optimization', 'Content Optimization', 'Image Alt Tags', 'Internal Linking']
+                        }
+                    ]
+                },
+                {
+                    name: 'SEO Basic Plan',
+                    icon: 'fas fa-chart-line',
+                    monthlyPrice: 300,
+                    yearlyPrice: 3060,
+                    popular: false,
+                    features: [
+                        '10 Keywords Tracking',
+                        'On-Page SEO',
+                        'Technical Audit',
+                        'Bi-weekly Reports',
+                        'Priority Support'
+                    ],
+                    services: [
+                        {
+                            title: 'SEO ANALYSIS',
+                            icon: 'fas fa-chart-bar',
+                            items: ['Keyword Research & Analysis', 'Competitor Analysis', 'Baseline Ranking Check']
+                        }
+                    ]
+                },
+                {
+                    name: 'SEO Standard Plan',
+                    icon: 'fas fa-star',
+                    monthlyPrice: 450,
+                    yearlyPrice: 4590,
+                    popular: true,
+                    features: [
+                        '25 Keywords Tracking',
+                        'Link Building',
+                        'Content Optimization',
+                        'Competitor Analysis',
+                        'Weekly Reports',
+                        'Dedicated Manager'
+                    ],
+                    services: [
+                        {
+                            title: 'COMPLETE SEO',
+                            icon: 'fas fa-chart-bar',
+                            items: ['Everything in Basic', 'Advanced Link Building', 'Content Strategy']
+                        }
+                    ]
+                },
+                {
+                    name: 'SEO Premium Plan',
+                    icon: 'fas fa-crown',
+                    monthlyPrice: 700,
+                    yearlyPrice: 7140,
+                    popular: false,
+                    features: [
+                        '50 Keywords Tracking',
+                        'Advanced Technical SEO',
+                        'Local SEO',
+                        'Content Creation',
+                        'Daily Monitoring'
+                    ],
+                    services: []
+                },
+                {
+                    name: 'SEO Enterprise Plan',
+                    icon: 'fas fa-building',
+                    monthlyPrice: 1200,
+                    yearlyPrice: 12240,
+                    popular: false,
+                    features: [
+                        'Unlimited Keywords',
+                        'Full SEO Suite',
+                        'Custom Strategy',
+                        'White-label Reports',
+                        '24/7 Support'
+                    ],
+                    services: []
+                }
+            ],
+            smo: [
+                {
+                    name: 'Starter SMO',
+                    icon: 'fas fa-rocket',
+                    monthlyPrice: 300,
+                    yearlyPrice: 3060,
+                    popular: false,
+                    features: ['2 Social Platforms', '10 Posts per Month', 'Basic Analytics'],
+                    services: []
+                },
+                {
+                    name: 'Professional SMO',
+                    icon: 'fas fa-chart-line',
+                    monthlyPrice: 500,
+                    yearlyPrice: 5100,
+                    popular: true,
+                    features: ['4 Social Platforms', '20 Posts per Month', 'Advanced Analytics'],
+                    services: []
+                },
+                {
+                    name: 'Enterprise SMO',
+                    icon: 'fas fa-crown',
+                    monthlyPrice: 800,
+                    yearlyPrice: 8160,
+                    popular: false,
+                    features: ['All Platforms', '30+ Posts', 'Influencer Outreach'],
+                    services: []
+                }
+            ],
+            ppc: [
+                {
+                    name: 'Starter PPC',
+                    icon: 'fas fa-rocket',
+                    monthlyPrice: 500,
+                    yearlyPrice: 5100,
+                    popular: false,
+                    features: ['Google Ads Setup', '$1000 Ad Budget'],
+                    services: []
+                },
+                {
+                    name: 'Professional PPC',
+                    icon: 'fas fa-chart-line',
+                    monthlyPrice: 900,
+                    yearlyPrice: 9180,
+                    popular: true,
+                    features: ['Multi-Platform', '$2500 Budget', 'A/B Testing'],
+                    services: []
+                }
+            ],
+            'web-dev': [
+                {
+                    name: 'Basic Website',
+                    icon: 'fas fa-laptop-code',
+                    monthlyPrice: 1000,
+                    yearlyPrice: 10200,
+                    popular: false,
+                    features: ['5 Pages', 'Responsive Design', 'SEO Friendly'],
+                    services: []
+                },
+                {
+                    name: 'Professional Website',
+                    icon: 'fas fa-desktop',
+                    monthlyPrice: 2000,
+                    yearlyPrice: 20400,
+                    popular: true,
+                    features: ['10 Pages', 'Custom Design', 'CMS'],
+                    services: []
+                }
+            ],
+            content: [
+                {
+                    name: 'Starter Content',
+                    icon: 'fas fa-pen',
+                    monthlyPrice: 250,
+                    yearlyPrice: 2550,
+                    popular: false,
+                    features: ['4 Blog Posts', 'SEO Optimization'],
+                    services: []
+                },
+                {
+                    name: 'Professional Content',
+                    icon: 'fas fa-edit',
+                    monthlyPrice: 500,
+                    yearlyPrice: 5100,
+                    popular: true,
+                    features: ['8 Blog Posts', 'Graphics Included'],
+                    services: []
+                }
+            ],
+            branding: [
+                {
+                    name: 'Basic Branding',
+                    icon: 'fas fa-paint-brush',
+                    monthlyPrice: 500,
+                    yearlyPrice: 5100,
+                    popular: false,
+                    features: ['Logo Design', 'Color Palette'],
+                    services: []
+                },
+                {
+                    name: 'Professional Branding',
+                    icon: 'fas fa-palette',
+                    monthlyPrice: 1000,
+                    yearlyPrice: 10200,
+                    popular: true,
+                    features: ['Complete Logo Suite', 'Brand Guide'],
+                    services: []
+                }
+            ]
+        };
+
+        // Toggle Billing
+        function toggleBilling() {
+            billingCycle = billingCycle === 'monthly' ? 'yearly' : 'monthly';
+            
+            const toggle = document.getElementById('toggleSlider');
+            const monthlyLabel = document.getElementById('monthlyLabel');
+            const yearlyLabel = document.getElementById('yearlyLabel');
+            
+            if (billingCycle === 'yearly') {
+                toggle.classList.add('yearly');
+                monthlyLabel.classList.remove('active');
+                monthlyLabel.classList.add('inactive');
+                yearlyLabel.classList.add('active');
+                yearlyLabel.classList.remove('inactive');
+                document.getElementById('billingToggle').classList.add('active');
+            } else {
+                toggle.classList.remove('yearly');
+                monthlyLabel.classList.add('active');
+                monthlyLabel.classList.remove('inactive');
+                yearlyLabel.classList.remove('active');
+                yearlyLabel.classList.add('inactive');
+                document.getElementById('billingToggle').classList.remove('active');
+            }
+            
+            loadPricingCards();
+        }
+
+        // Select Category
+        function selectCategory(category) {
+            selectedCategory = category;
+            
+            // Update UI
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Find and activate the correct category card
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                if (card.getAttribute('onclick') && card.getAttribute('onclick').includes(category)) {
+                    card.classList.add('active');
+                }
+            });
+            
+            loadPricingCards();
+        }
+
+        // Load Pricing Cards
+        function loadPricingCards() {
+            const container = document.getElementById('pricingCardsContainer');
+            const plans = pricingData[selectedCategory] || [];
+            
+            // First row (3 cards)
+            const firstRow = plans.slice(0, 3);
+            // Second row (remaining cards)
+            const secondRow = plans.slice(3);
+            
+            let html = '';
+            
+            // First Row
+            if (firstRow.length > 0) {
+                html += '<div class="pricing-cards-row">';
+                firstRow.forEach(plan => {
+                    html += createPricingCard(plan);
+                });
+                html += '</div>';
+            }
+            
+            // Second Row
+            if (secondRow.length > 0) {
+                html += '<div class="pricing-cards-row">';
+                secondRow.forEach(plan => {
+                    html += createPricingCard(plan);
+                });
+                html += '</div>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Create Pricing Card HTML
+        function createPricingCard(plan) {
+            const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
+            
+            return `
+                <div class="pricing-card ${plan.popular ? 'popular' : ''}" data-aos="fade-up">
+                    ${plan.popular ? '<div class="popular-badge">POPULAR</div>' : ''}
+                    <div class="plan-header">
+                        <h3 class="plan-name">${plan.name}</h3>
+                        <div class="plan-icon">
+                            <i class="${plan.icon}"></i>
+                        </div>
+                    </div>
+                    <div class="plan-price">$${price}</div>
+                    <ul class="plan-features">
+                        ${plan.features.map(feature => `
+                            <li class="feature-item">
+                                <i class="fas fa-check feature-check"></i>
+                                ${feature}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <button class="get-started-btn" onclick='openModal(${JSON.stringify(plan)})'>
+                        Get Started
+                    </button>
+                </div>
+            `;
+        }
+
+        // Open Modal
+        function openModal(plan) {
+            selectedPlan = plan;
+            const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
+            
+            document.getElementById('modalPlanName').textContent = plan.name;
+            document.getElementById('modalPrice').textContent = '$' + price;
+            document.getElementById('modalPricePeriod').textContent = billingCycle === 'monthly' ? 'per month' : 'per year';
+            
+            // Load Services
+            const servicesGrid = document.getElementById('servicesGrid');
+            if (plan.services && plan.services.length > 0) {
+                servicesGrid.innerHTML = plan.services.map(category => `
+                    <div class="service-category">
+                        <h4 class="category-title">
+                            <i class="${category.icon}"></i>
+                            ${category.title}
+                        </h4>
+                        <ul class="service-list">
+                            ${category.items.map(item => `
+                                <li class="service-item">
+                                    <i class="fas fa-check"></i>
+                                    ${item}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `).join('');
+            } else {
+                servicesGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: rgba(255,255,255,0.5);">Services details coming soon...</div>';
+            }
+            
+            document.getElementById('modalOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Proceed to Payment
+        function proceedToPayment() {
+            const price = billingCycle === 'monthly' ? selectedPlan.monthlyPrice : selectedPlan.yearlyPrice;
+            alert(`Proceeding to payment for ${selectedPlan.name} - $${price}`);
+            closeModal();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL hash for category
+            const hash = window.location.hash.slice(1);
+            if (hash && pricingData[hash]) {
+                selectedCategory = hash;
+                
+                // Update active category card
+                document.querySelectorAll('.category-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                const categoryCards = document.querySelectorAll('.category-card');
+                categoryCards.forEach(card => {
+                    const onclickAttr = card.getAttribute('onclick');
+                    if (onclickAttr && onclickAttr.includes(`'${hash}'`)) {
+                        card.classList.add('active');
+                    }
+                });
+            }
+            
+            loadPricingCards();
+            
+            // Smooth scroll to top after hash change
+            if (hash) {
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

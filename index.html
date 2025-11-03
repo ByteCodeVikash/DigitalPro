@@ -34,6 +34,8 @@
     <link href="assets/css/components.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/hero-3d-styles.css" rel="stylesheet">
+    <script src="assets/js/hero-3d-animation.js"></script>
     
     <title>Digital Marketing Pro Agency - Boost Your Business Online</title>
     
@@ -68,381 +70,1114 @@
 </head>
 <body>
     <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand gradient-text" href="#home">
-                <i class="fas fa-rocket me-2"></i>
-                <span class="brand-text">DigitalPro</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item">
-                        <a class="btn btn-gradient nav-cta" href="#contact">
-                            <span>Free SEO Audit</span>
-                            <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
+<nav class="navbar navbar-expand-lg fixed-top modern-navbar" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Rankriseusa Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-nav-secondary" href="pricing.html">
+                        <span>Pricing Plan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-nav-primary" href="contact.html">
+                        <span>Free Audit</span>
+                        <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section -->
-    <section id="home" class="hero-section-modern">
-        <div class="hero-gradient-bg"></div>
-        <div class="hero-particles"></div>
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
-                    <div class="hero-content-modern" data-aos="fade-right" data-aos-duration="1000">
-                        <div class="hero-badge mb-4">
-                            <span class="badge-icon">✨</span>
-                            <span>#1 Digital Marketing Agency</span>
-                        </div>
-                        <h1 class="hero-title-modern mb-4">
-                            Transform Your Business with
-                            <span class="gradient-text-animated d-block">Expert Digital Marketing</span>
-                        </h1>
-                        <p class="hero-subtitle-modern mb-5" data-aos="fade-right" data-aos-delay="200">
-                            Drive explosive growth with data-driven strategies. Increase traffic by 300%, generate quality leads, and dominate your market with our proven digital solutions.
-                        </p>
-                        
-                        <div class="hero-stats-modern mb-5" data-aos="fade-up" data-aos-delay="400">
-                            <div class="stat-item-modern">
-                                <div class="stat-icon-modern">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="stat-content-modern">
-                                    <span class="stat-number counter" data-count="500">0</span>
-                                    <span class="stat-plus">+</span>
-                                    <p class="stat-label">Happy Clients</p>
-                                </div>
-                            </div>
-                            <div class="stat-item-modern">
-                                <div class="stat-icon-modern">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="stat-content-modern">
-                                    <span class="stat-number counter" data-count="95">0</span>
-                                    <span class="stat-plus">%</span>
-                                    <p class="stat-label">Success Rate</p>
-                                </div>
-                            </div>
-                            <div class="stat-item-modern">
-                                <div class="stat-icon-modern">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <div class="stat-content-modern">
-                                    <span class="stat-number counter" data-count="10">0</span>
-                                    <span class="stat-plus">+</span>
-                                    <p class="stat-label">Years Experience</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="hero-buttons-modern" data-aos="fade-up" data-aos-delay="600">
-                            <a href="#contact" class="btn btn-gradient btn-lg me-3 pulse-btn">
-                                <i class="fas fa-rocket me-2"></i>
-                                <span>Get Started Now</span>
-                            </a>
-                            <a href="#services" class="btn btn-glass btn-lg">
-                                <i class="fas fa-play-circle me-2"></i>
-                                <span>View Services</span>
-                            </a>
-                        </div>
+<section id="home" class="hero-modern-section">
+    <div class="hero-bg-animated"></div>
+    
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <!-- Left Content -->
+            <div class="col-lg-6 col-md-12">
+                <div class="hero-content" data-aos="fade-right">
+                    
+                    
+                    <h1 class="hero-title">
+                        Transform Your Business with
+                        <span class="gradient-text">Expert Digital Marketing</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Drive explosive growth with data-driven strategies. Increase traffic by 300%, generate quality leads, and dominate your market.
+                    </p>
+                
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-hero btn-primary">
+                            <span>Schedule Meeting</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#services" class="btn-hero btn-secondary">
+                            <span>View Services</span>
+                            <i class="fas fa-play-circle"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="floating-card-modern card-1">
-                            <div class="card-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="card-content">
-                                <h4>300%</h4>
-                                <p>Traffic Growth</p>
-                            </div>
+            </div>
+            
+            <!-- Right Visual -->
+            <div class="col-lg-6 col-md-12">
+                <div class="hero-visual" id="heroVisual">
+                    <!-- Center Circle -->
+                    <div class="center-circle">
+                        <div class="circle-inner">
+                            <i class="fas fa-rocket"></i>
                         </div>
-                        <div class="floating-card-modern card-2">
-                            <div class="card-icon">
+                        <div class="circle-ring"></div>
+                        <div class="circle-ring-2"></div>
+                    </div>
+                    
+                    <!-- Orbiting Icons -->
+                    <div class="orbit-container">
+                        <div class="orbit-item" data-orbit="1" data-color="#667eea">
+                            <div class="orbit-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <span class="orbit-label">SEO</span>
+                        </div>
+                        
+                        <div class="orbit-item" data-orbit="2" data-color="#f5576c">
+                            <div class="orbit-icon">
                                 <i class="fas fa-bullseye"></i>
                             </div>
-                            <div class="card-content">
-                                <h4>5x ROI</h4>
-                                <p>Average Return</p>
+                            <span class="orbit-label">PPC</span>
+                        </div>
+                        
+                        <div class="orbit-item" data-orbit="3" data-color="#4facfe">
+                            <div class="orbit-icon">
+                                <i class="fas fa-share-alt"></i>
                             </div>
+                            <span class="orbit-label">Social Media</span>
                         </div>
-                        <div class="floating-card-modern card-3">
-                            <div class="card-icon">
-                                <i class="fas fa-award"></i>
+                        
+                        <div class="orbit-item" data-orbit="4" data-color="#fa709a">
+                            <div class="orbit-icon">
+                                <i class="fas fa-pen-nib"></i>
                             </div>
-                            <div class="card-content">
-                                <h4>Top Rated</h4>
-                                <p>Agency 2025</p>
+                            <span class="orbit-label">Content</span>
+                        </div>
+                        
+                        <div class="orbit-item" data-orbit="5" data-color="#30cfd0">
+                            <div class="orbit-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
+                            <span class="orbit-label">Email</span>
                         </div>
-                        <div class="hero-circle-decoration"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator-modern">
-            <div class="mouse-scroll">
-                <div class="mouse-wheel"></div>
-            </div>
-            <p>Scroll Down</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section-modern py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-5">
-                    <div class="section-badge" data-aos="fade-up">
-                        <span>Our Expertise</span>
-                    </div>
-                    <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
-                        Comprehensive <span class="gradient-text">Digital Solutions</span>
-                    </h2>
-                    <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
-                        Full-service digital marketing to accelerate your growth
-                    </p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <!-- SEO Service -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-icon-modern gradient-1">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 class="service-title-modern">SEO Optimization</h3>
-                        <p class="service-description-modern">
-                            Dominate search rankings with cutting-edge SEO strategies. Get organic traffic that converts.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Keyword Research</li>
-                            <li><i class="fas fa-check-circle"></i> On-page SEO</li>
-                            <li><i class="fas fa-check-circle"></i> Technical SEO</li>
-                            <li><i class="fas fa-check-circle"></i> Local SEO</li>
-                        </ul>
-                        <a href="services.html#seo" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PPC Service -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern featured" data-aos="fade-up" data-aos-delay="200">
-                        <div class="popular-badge">Most Popular</div>
-                        <div class="service-icon-modern gradient-2">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 class="service-title-modern">PPC Advertising</h3>
-                        <p class="service-description-modern">
-                            Maximize ROI with targeted Google Ads campaigns. Get instant results and measurable growth.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Google Ads</li>
-                            <li><i class="fas fa-check-circle"></i> Facebook Ads</li>
-                            <li><i class="fas fa-check-circle"></i> Campaign Optimization</li>
-                            <li><i class="fas fa-check-circle"></i> ROI Tracking</li>
-                        </ul>
-                        <a href="services.html#ppc" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- SMO Service -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-icon-modern gradient-3">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <h3 class="service-title-modern">Social Media Marketing</h3>
-                        <p class="service-description-modern">
-                            Build a powerful brand presence. Engage audiences and drive conversions across all platforms.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Content Creation</li>
-                            <li><i class="fas fa-check-circle"></i> Community Management</li>
-                            <li><i class="fas fa-check-circle"></i> Paid Social Ads</li>
-                            <li><i class="fas fa-check-circle"></i> Analytics & Reporting</li>
-                        </ul>
-                        <a href="services.html#smo" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Web Development -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-icon-modern gradient-4">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="service-title-modern">Web Development</h3>
-                        <p class="service-description-modern">
-                            Create stunning, high-performance websites that convert visitors into loyal customers.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Responsive Design</li>
-                            <li><i class="fas fa-check-circle"></i> E-commerce Solutions</li>
-                            <li><i class="fas fa-check-circle"></i> CMS Development</li>
-                            <li><i class="fas fa-check-circle"></i> Performance Optimization</li>
-                        </ul>
-                        <a href="services.html#web-dev" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Content Marketing -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-icon-modern gradient-5">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <h3 class="service-title-modern">Content Marketing</h3>
-                        <p class="service-description-modern">
-                            Engage your audience with compelling content that drives traffic and builds authority.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Blog Writing</li>
-                            <li><i class="fas fa-check-circle"></i> Video Content</li>
-                            <li><i class="fas fa-check-circle"></i> Infographics</li>
-                            <li><i class="fas fa-check-circle"></i> Content Strategy</li>
-                        </ul>
-                        <a href="services.html#content" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Email Marketing -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card-modern" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-icon-modern gradient-6">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3 class="service-title-modern">Email Marketing</h3>
-                        <p class="service-description-modern">
-                            Build relationships and drive sales with targeted campaigns and smart automation.
-                        </p>
-                        <ul class="service-features-modern">
-                            <li><i class="fas fa-check-circle"></i> Campaign Design</li>
-                            <li><i class="fas fa-check-circle"></i> List Management</li>
-                            <li><i class="fas fa-check-circle"></i> Automation</li>
-                            <li><i class="fas fa-check-circle"></i> Performance Tracking</li>
-                        </ul>
-                        <a href="services.html#email" class="btn btn-service">
-                            <span>Learn More</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section-modern py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="about-image-wrapper">
-                        <div class="about-image-decoration"></div>
-                        <div class="glass-card-modern">
-                            <div class="glass-card-stats">
-                                <div class="stat-box-glass">
-                                    <span class="stat-number-glass counter" data-count="500">0</span>
-                                    <span class="stat-plus">+</span>
-                                    <p>Happy Clients</p>
-                                </div>
-                                <div class="stat-box-glass">
-                                    <span class="stat-number-glass counter" data-count="1200">0</span>
-                                    <span class="stat-plus">+</span>
-                                    <p>Projects Done</p>
-                                </div>
-                                <div class="stat-box-glass">
-                                    <span class="stat-number-glass counter" data-count="10">0</span>
-                                    <span class="stat-plus">+</span>
-                                    <p>Years Experience</p>
-                                </div>
-                                <div class="stat-box-glass">
-                                    <span class="stat-number-glass counter" data-count="95">0</span>
-                                    <span class="stat-plus">%</span>
-                                    <p>Success Rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="section-badge mb-4">
-                        <span>Why Choose Us</span>
-                    </div>
-                    <h2 class="section-title-modern mb-4">
-                        The <span class="gradient-text">Digital Partner</span> You've Been Searching For
-                    </h2>
-                    <p class="section-description-modern mb-4">
-                        With 10+ years of proven excellence, we've helped 500+ businesses achieve explosive online growth. Our data-driven approach ensures maximum ROI for every campaign.
-                    </p>
-                    <div class="features-list-modern">
-                        <div class="feature-item-modern">
-                            <div class="feature-icon-modern gradient-1">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="feature-content-modern">
-                                <h4>Award-Winning Team</h4>
-                                <p>Recognized as #1 agency for 3 consecutive years</p>
-                            </div>
-                        </div>
-                        <div class="feature-item-modern">
-                            <div class="feature-icon-modern gradient-2">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <div class="feature-content-modern">
-                                <h4>Expert Professionals</h4>
-                                <p>Certified specialists in all digital channels</p>
-                            </div>
-                        </div>
-                        <div class="feature-item-modern">
-                            <div class="feature-icon-modern gradient-3">
+                        
+                        <div class="orbit-item" data-orbit="6" data-color="#fee140">
+                            <div class="orbit-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
-                            <div class="feature-content-modern">
-                                <h4>Proven Results</h4>
-                                <p>300% average traffic increase in 6 months</p>
-                            </div>
+                            <span class="orbit-label">Analytics</span>
                         </div>
                     </div>
-                    <a href="about.html" class="btn btn-gradient btn-lg mt-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+   <!-- ===== MODERN CIRCULAR SERVICES SECTION ===== -->
+<section id="services" class="services-section-modern py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                    Comprehensive <span class="gradient-text">Digital Solutions</span>
+                </h2>
+                <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                    Full-service digital marketing to accelerate your growth
+                </p>
+            </div>
+        </div>
+        
+        <!-- Circular Services Container -->
+        <div class="services-circular-container" data-aos="zoom-in" data-aos-delay="300">
+            <!-- Center Circle -->
+            <div class="services-center-circle">
+                <h3>OUR<br>SERVICES</h3>
+                <span class="center-subtext">We Provide</span>
+            </div>
+            
+            <!-- Connecting Rings -->
+            <div class="services-ring services-ring-1"></div>
+            <div class="services-ring services-ring-2"></div>
+            <div class="services-ring services-ring-3"></div>
+            
+            <!-- Service Cards in Circular Pattern -->
+            
+            <!-- Service Cards in Circular Pattern -->
+
+<!-- 1. Content Writing (Top) -->
+<a href="pricing.html#content" class="service-card-circular" data-aos="fade-down" data-aos-delay="400" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-pen-nib"></i>
+    </div>
+    <h4 class="service-title-circular">Content<br>Writing</h4>
+</a>
+
+<!-- 2. Web Design & Development (Top Right) -->
+<a href="pricing.html#web-dev" class="service-card-circular" data-aos="fade-left" data-aos-delay="500" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-code"></i>
+    </div>
+    <h4 class="service-title-circular">Web Design &<br>Development</h4>
+    <p class="service-subtitle-circular">Modern Web Solutions</p>
+</a>
+
+<!-- 3. SEO Services (Bottom Right) -->
+<a href="pricing.html#seo" class="service-card-circular" data-aos="fade-left" data-aos-delay="600" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-search"></i>
+    </div>
+    <h4 class="service-title-circular">SEO Services</h4>
+    <p class="service-subtitle-circular">Rank Higher on Google</p>
+</a>
+
+<!-- 4. PPC Solutions (Bottom) -->
+<a href="pricing.html#ppc" class="service-card-circular" data-aos="fade-up" data-aos-delay="700" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-ad"></i>
+    </div>
+    <h4 class="service-title-circular">PPC<br>Solutions</h4>
+</a>
+
+<!-- 5. Branding (Bottom Left) -->
+<a href="pricing.html#branding" class="service-card-circular" data-aos="fade-right" data-aos-delay="800" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-palette"></i>
+    </div>
+    <h4 class="service-title-circular">Branding</h4>
+</a>
+
+<!-- 6. SMO Service (Top Left) -->
+<a href="pricing.html#smo" class="service-card-circular" data-aos="fade-right" data-aos-delay="900" style="text-decoration: none; color: inherit;">
+    <div class="service-icon-circular">
+        <i class="fas fa-share-alt"></i>
+    </div>
+    <h4 class="service-title-circular">SMO<br>Service</h4>
+</a>
+        </div>
+        
+        <!-- CTA Button Below Services -->
+        <div class="row mt-5">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="1000">
+                <a href="services.html" class="btn btn-gradient btn-lg">
+                    <span>View All Services</span>
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <!-- About / Why Choose Us Section -->
+<section id="about" class="why-choose-section py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <div class="section-badge" data-aos="fade-up">
+                    <span>Why Choose Us</span>
+                </div>
+                <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                    The <span class="gradient-text">Digital Partner</span> You've Been Searching For
+                </h2>
+                <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                    With 10+ years of proven excellence, we've helped 500+ businesses achieve explosive online growth
+                </p>
+            </div>
+        </div>
+
+        <div class="row align-items-center g-5">
+            <!-- Left Side - Stats -->
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="stats-wrapper-modern">
+                    <!-- Stat Item 1 -->
+                    <div class="stat-item-floating stat-1">
+                        <div class="stat-icon-circle gradient-bg-1">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3><span class="counter" data-count="500">0</span>+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Item 2 -->
+                    <div class="stat-item-floating stat-2">
+                        <div class="stat-icon-circle gradient-bg-2">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3><span class="counter" data-count="1200">0</span>+</h3>
+                            <p>Projects Done</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Item 3 -->
+                    <div class="stat-item-floating stat-3">
+                        <div class="stat-icon-circle gradient-bg-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3><span class="counter" data-count="10">0</span>+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Item 4 -->
+                    <div class="stat-item-floating stat-4">
+                        <div class="stat-icon-circle gradient-bg-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3><span class="counter" data-count="95">0</span>%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+
+                    <!-- Center Decoration -->
+                    <div class="stats-center-decoration">
+                        <div class="decoration-ring ring-1"></div>
+                        <div class="decoration-ring ring-2"></div>
+                        <div class="decoration-ring ring-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Features -->
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="features-list-compact">
+                    <!-- Feature 1 -->
+                    <div class="feature-item-compact" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon-compact gradient-bg-1">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="feature-content-compact">
+                            <h4>Award-Winning Team</h4>
+                            <p>Recognized as #1 agency for 3 consecutive years with certified specialists</p>
+                        </div>
+                        <div class="feature-number">01</div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-item-compact" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon-compact gradient-bg-2">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="feature-content-compact">
+                            <h4>Proven Results</h4>
+                            <p>300% average traffic increase in 6 months with data-driven strategies</p>
+                        </div>
+                        <div class="feature-number">02</div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-item-compact" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon-compact gradient-bg-3">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-content-compact">
+                            <h4>24/7 Expert Support</h4>
+                            <p>Round-the-clock support with dedicated account manager for your success</p>
+                        </div>
+                        <div class="feature-number">03</div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-item-compact" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon-compact gradient-bg-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content-compact">
+                            <h4>Secure & Reliable</h4>
+                            <p>Enterprise-grade security with 99.9% uptime and GDPR compliance</p>
+                        </div>
+                        <div class="feature-number">04</div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="500">
+                    <a href="about.html" class="btn btn-gradient btn-lg">
                         <span>Discover Our Story</span>
                         <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+    <!-- Portfolio Section -->
+    <!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section-modern py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <div class="section-badge" data-aos="fade-up">
+                    <span>Our Work</span>
+                </div>
+                <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                    Success <span class="gradient-text">Stories</span>
+                </h2>
+                <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                    Real results from our digital marketing campaigns
+                </p>
+            </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="row g-4">
+            <!-- Portfolio Item 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/case-study-1.webp" alt="E-commerce Success">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">E-commerce</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>Fashion Brand Growth</h3>
+                        <p>Transformed online presence with strategic SEO and PPC campaigns</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">450%</span>
+                                <span class="metric-label">Revenue</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">320%</span>
+                                <span class="metric-label">Traffic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/case-study-2.webp" alt="SaaS Marketing">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">SaaS</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>B2B Lead Generation</h3>
+                        <p>Generated high-quality leads through targeted content marketing</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">2500+</span>
+                                <span class="metric-label">Leads</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">180%</span>
+                                <span class="metric-label">ROI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/before-after-1.webp" alt="Local Business">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">Local SEO</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>Restaurant Chain</h3>
+                        <p>Dominated local search results with optimized Google My Business</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">#1</span>
+                                <span class="metric-label">Ranking</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">500%</span>
+                                <span class="metric-label">Calls</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 4 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/before-after-2.webp" alt="Healthcare">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">Healthcare</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>Medical Practice</h3>
+                        <p>Increased patient bookings with local SEO and reputation management</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">280%</span>
+                                <span class="metric-label">Bookings</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">4.9★</span>
+                                <span class="metric-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 5 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/case-study-1.webp" alt="Real Estate">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">Real Estate</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>Property Listings</h3>
+                        <p>Boosted property inquiries with social media advertising campaigns</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">350%</span>
+                                <span class="metric-label">Inquiries</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">$2.5M</span>
+                                <span class="metric-label">Sales</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 6 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="portfolio-card-modern">
+                    <div class="portfolio-image-modern">
+                        <img src="assets/images/portfolio/case-study-2.webp" alt="Fitness">
+                        <div class="portfolio-overlay-modern">
+                            <div class="portfolio-category-badge">Fitness</div>
+                            <a href="portfolio.html" class="portfolio-view-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content-modern">
+                        <h3>Gym Membership</h3>
+                        <p>Grew membership base with influencer marketing and paid ads</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric-item">
+                                <span class="metric-value">600+</span>
+                                <span class="metric-label">Members</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-value">220%</span>
+                                <span class="metric-label">Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="row mt-5">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <a href="portfolio.html" class="btn btn-gradient btn-lg">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Team Section -->
+    <!-- Team Section -->
+<section id="team" class="team-section-modern py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="team-section-title" data-aos="fade-up">MEET OUR TEAM</h2>
+                <div class="title-divider" data-aos="fade-up" data-aos-delay="100"></div>
+            </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="row g-4 justify-content-center">
+            <!-- Team Member 1 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-card-circular">
+                    <div class="team-card-inner">
+                        <div class="rotating-border"></div>
+                        <div class="team-image-circular">
+                            <img src="assets/images/team/ceo.webp" alt="John Anderson">
+                        </div>
+                        <div class="team-info-circular">
+                            <h3>John Anderson</h3>
+                            <p>CEO & Founder - 15+ years in digital marketing strategy</p>
+                        </div>
+                        <div class="team-social-circular">
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="team-card-circular">
+                    <div class="team-card-inner">
+                        <div class="rotating-border"></div>
+                        <div class="team-image-circular">
+                            <img src="assets/images/team/cto.webp" alt="Sarah Miller">
+                        </div>
+                        <div class="team-info-circular">
+                            <h3>Sarah Miller</h3>
+                            <p>Head of SEO - Google certified SEO expert with proven results</p>
+                        </div>
+                        <div class="team-social-circular">
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="team-card-circular">
+                    <div class="team-card-inner">
+                        <div class="rotating-border"></div>
+                        <div class="team-image-circular">
+                            <img src="assets/images/team/marketing-head.webp" alt="Michael Chen">
+                        </div>
+                        <div class="team-info-circular">
+                            <h3>Michael Chen</h3>
+                            <p>PPC Specialist - Managing $2M+ in ad spend annually</p>
+                        </div>
+                        <div class="team-social-circular">
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="team-card-circular">
+                    <div class="team-card-inner">
+                        <div class="rotating-border"></div>
+                        <div class="team-image-circular">
+                            <img src="assets/images/team/team-placeholder.webp" alt="Emily Roberts">
+                        </div>
+                        <div class="team-info-circular">
+                            <h3>Emily Roberts</h3>
+                            <p>Content Director - Award-winning content strategist</p>
+                        </div>
+                        <div class="team-social-circular">
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon-circular">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Blog Section -->
+<section id="blog" class="blog-section-modern py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <div class="section-badge" data-aos="fade-up">
+                    <span>Latest Insights</span>
+                </div>
+                <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                    Marketing <span class="gradient-text">Blog</span>
+                </h2>
+                <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                    Expert tips and industry trends to grow your business
+                </p>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="row g-4">
+            <!-- Blog Post 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-1.webp" alt="SEO Trends 2025">
+                        <div class="blog-category-tag seo-tag">SEO</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">15</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                John Doe
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                5 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/how-to-rank-on-google-2025.html">
+                                How to Rank #1 on Google in 2025
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Discover the latest SEO strategies that actually work in 2025. Learn proven techniques to dominate search results...
+                        </p>
+                        <a href="blog/how-to-rank-on-google-2025.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-2.webp" alt="PPC Strategies">
+                        <div class="blog-category-tag ppc-tag">PPC</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">12</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                Sarah Miller
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                7 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/ppc-strategies-2025.html">
+                                PPC Strategies That Convert in 2025
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Master paid advertising with these proven tactics. Maximize your ROI and generate quality leads with Google Ads...
+                        </p>
+                        <a href="blog/ppc-strategies-2025.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-3.webp" alt="Social Media Marketing">
+                        <div class="blog-category-tag social-tag">Social Media</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">10</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                Mike Chen
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                6 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/social-media-marketing-tips.html">
+                                Social Media Marketing Tips 2025
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Build a massive following with these strategies. Learn how to create viral content and engage your audience...
+                        </p>
+                        <a href="blog/social-media-marketing-tips.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-4.webp" alt="Content Marketing">
+                        <div class="blog-category-tag content-tag">Content</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">08</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                Emily Roberts
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                8 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/how-to-rank-on-google-2025.html">
+                                Content Marketing Strategy Guide
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Create compelling content that drives traffic and conversions. A complete guide to content marketing success...
+                        </p>
+                        <a href="blog/how-to-rank-on-google-2025.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-1.webp" alt="Email Marketing">
+                        <div class="blog-category-tag email-tag">Email</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">05</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                David Lee
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                5 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/ppc-strategies-2025.html">
+                                Email Marketing Best Practices
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Boost your email open rates and conversions. Learn the secrets of successful email marketing campaigns...
+                        </p>
+                        <a href="blog/ppc-strategies-2025.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <article class="blog-card-modern">
+                    <div class="blog-image-wrapper">
+                        <img src="assets/images/blog/blog-2.webp" alt="Web Analytics">
+                        <div class="blog-category-tag analytics-tag">Analytics</div>
+                        <div class="blog-date-badge">
+                            <span class="date-day">02</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content-wrapper">
+                        <div class="blog-meta-info">
+                            <span class="meta-item">
+                                <i class="far fa-user"></i>
+                                Lisa Wang
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i>
+                                9 min read
+                            </span>
+                        </div>
+                        <h3 class="blog-title-modern">
+                            <a href="blog/social-media-marketing-tips.html">
+                                Google Analytics 4 Complete Guide
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt-modern">
+                            Master GA4 and make data-driven decisions. Everything you need to know about Google Analytics 4 tracking...
+                        </p>
+                        <a href="blog/social-media-marketing-tips.html" class="blog-read-more">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="blog-hover-overlay"></div>
+                </article>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="row mt-5">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <a href="blog.html" class="btn btn-gradient btn-lg">
+                    <span>View All Articles</span>
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FAQ Section -->
+<section id="faq" class="faq-section-modern py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <div class="section-badge" data-aos="fade-up">
+                    <span>Got Questions?</span>
+                </div>
+                <h2 class="section-title-modern" data-aos="fade-up" data-aos-delay="100">
+                    Frequently Asked <span class="gradient-text">Questions</span>
+                </h2>
+                <p class="section-subtitle-modern" data-aos="fade-up" data-aos-delay="200">
+                    Everything you need to know about our services
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- FAQ Accordion -->
+                <div class="faq-accordion-modern" data-aos="fade-up" data-aos-delay="300">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item-modern active">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">01</span>
+                            <span class="question-text">How long does it take to see SEO results?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern" style="display: block;">
+                            <div class="answer-content">
+                                <p>Typically, you can expect to see initial SEO results within 3-6 months. However, significant improvements and rankings for competitive keywords usually take 6-12 months. SEO is a long-term strategy that delivers compounding returns over time. We provide monthly reports showing progress in rankings, traffic, and conversions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item-modern">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">02</span>
+                            <span class="question-text">What's included in your digital marketing packages?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern">
+                            <div class="answer-content">
+                                <p>Our comprehensive packages include SEO optimization, PPC campaign management, social media marketing, content creation, email marketing, analytics reporting, and dedicated account management. Each package is customized to your specific business goals and budget. We also provide regular strategy sessions and performance reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item-modern">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">03</span>
+                            <span class="question-text">How much should I budget for PPC advertising?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern">
+                            <div class="answer-content">
+                                <p>PPC budgets vary based on your industry, competition, and goals. We recommend starting with at least $1,000-$3,000 per month for small businesses, $3,000-$10,000 for mid-sized companies, and $10,000+ for enterprises. We'll help optimize your budget for maximum ROI through continuous testing and refinement.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item-modern">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">04</span>
+                            <span class="question-text">Do you work with businesses in my industry?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern">
+                            <div class="answer-content">
+                                <p>Yes! We've successfully worked with businesses across 50+ industries including e-commerce, SaaS, healthcare, real estate, finance, retail, and more. Our strategies are adaptable and tailored to your specific industry requirements and target audience. We conduct thorough competitive analysis for each industry.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item-modern">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">05</span>
+                            <span class="question-text">What makes your agency different from others?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern">
+                            <div class="answer-content">
+                                <p>We focus on data-driven results, transparent reporting, and personalized strategies. Unlike agencies that use cookie-cutter approaches, we develop custom solutions based on deep analysis of your business, competitors, and market. Plus, you get direct access to senior strategists, not junior account managers. Our average client stays with us for 3+ years.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item-modern">
+                        <button class="faq-question-modern" type="button">
+                            <span class="question-number">06</span>
+                            <span class="question-text">Can I cancel my contract anytime?</span>
+                            <span class="faq-icon-modern">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-answer-modern">
+                            <div class="answer-content">
+                                <p>We offer flexible contract terms. While we recommend a minimum 6-month commitment for optimal results, we don't lock you into long-term contracts. You can cancel with 30 days' notice. We're confident you'll see the value and want to continue working with us. Most clients renew and expand their services.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Still Have Questions CTA -->
+                <div class="faq-cta-box" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-cta-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="faq-cta-content">
+                        <h3>Still have questions?</h3>
+                        <p>Can't find the answer you're looking for? Our team is here to help.</p>
+                    </div>
+                    <a href="contact.html" class="btn btn-gradient">
+                        <span>Contact Us</span>
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Testimonials Section -->
     <section class="testimonials-section-modern py-5">
         <div class="container">
@@ -470,7 +1205,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text-modern">
-                            "DigitalPro completely transformed our online presence. Our website traffic increased by 400% and leads by 250% in just 6 months. Best investment we've ever made!"
+                            "Rankriseusa completely transformed our online presence. Our website traffic increased by 400% and leads by 250% in just 6 months. Best investment we've ever made!"
                         </p>
                         <div class="testimonial-author-modern">
                             <div class="author-avatar">
@@ -631,8 +1366,9 @@
                 <div class="col-lg-4 mb-4">
                     <div class="footer-about-modern">
                         <h3 class="footer-logo-modern gradient-text">
-                            <i class="fas fa-rocket me-2"></i>
-                            DigitalPro
+                            <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height:80px; width:auto;">
+
+                            <!-- Rankriseusa -->
                         </h3>
                         <p>Your trusted partner for digital marketing excellence. We transform businesses with data-driven strategies and proven results.</p>
                         <div class="social-links-modern">
@@ -686,7 +1422,7 @@
                         </div>
                         <div class="contact-item-modern">
                             <i class="fas fa-envelope"></i>
-                            <span>info@digitalpro.com</span>
+                            <span>info@rankriseusa.com</span>
                         </div>
                     </div>
                 </div>
@@ -694,7 +1430,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-bottom-modern text-center">
-                        <p>&copy; 2025 DigitalPro Agency. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+                        <p>&copy; 2025 Rankriseusa Agency. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
                     </div>
                 </div>
             </div>
@@ -707,6 +1443,9 @@
     </button>
 
     <!-- JavaScript Files -->
+    <script src="assets/js/hero-interactions.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/main.js"></script>

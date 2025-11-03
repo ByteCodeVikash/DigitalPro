@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Quote Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0f1419;
+            --card-bg: #1a1f2e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+        
+        .number-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+        
+        .pay-button {
+            transition: all 0.2s ease;
+        }
+        
+        .pay-button:hover:not(:disabled) {
+            transform: scale(1.03);
+        }
+        
+        .pay-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .counter-animation {
+            transition: all 0.3s ease;
+        }
+        
+        /* Focus styles for accessibility */
+        input:focus, textarea:focus, select:focus, button:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--accent);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Grid layout for services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        
+        /* Additional services grid */
+        .additional-services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
+        /* Quantity controls */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.1);
+        }
+        
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 0 8px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        /* Selected service styling */
+        .service-selected {
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+        }
+        
+        /* Package selection */
+        .package-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .package-option.selected {
+            background-color: rgba(251, 191, 36, 0.15);
+            border: 2px solid var(--accent);
+        }
+        
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            border-radius: 0.75rem;
+            width: 100%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .additional-services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .additional-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .additional-services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Yellow background with white icons and black text */
+        .yellow-bg {
+            background-color: var(--accent);
+        }
+        
+        .yellow-bg .text-white {
+            color: #000;
+        }
+        
+        .yellow-bg h3, .yellow-bg p {
+            color: #000;
+        }
+        
+        /* Pages control disabled state */
+        .pages-control-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        /* Black buttons */
+        .black-button {
+            background-color: #000000;
+            color: white;
+        }
+        
+        .black-button:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-900 text-gray-100">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="w-full h-full px-4 py-6">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Web Design Quote Calculator</h1>
+            <p class="text-gray-400 text-lg">Select your requirements to get an estimated quote</p>
+        </header>
+        
+        <main id="main-content" class="h-[calc(100%-120px)]">
+            <div class="flex flex-col lg:flex-row gap-6 h-full">
+                <!-- Left Column - Services -->
+                <div class="lg:w-7/12 h-full overflow-y-auto custom-scroll">
+                    <!-- Website Package Selection -->
+                    <section class="card p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Website Package</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="package-option card p-4 flex items-center space-x-4" data-package="landing">
+                                <div class="w-12 h-12 rounded-full yellow-bg flex items-center justify-center">
+                                    <i class="fas fa-file-alt text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold">Landing Page</h3>
+                                    <p class="text-sm text-gray-400">Single page website</p>
+                                </div>
+                                <div class="text-amber-400 font-bold">$67</div>
+                            </div>
+                            
+                            <div class="package-option card p-4 flex items-center space-x-4 selected" data-package="full">
+                                <div class="w-12 h-12 rounded-full yellow-bg flex items-center justify-center">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold">Full Website</h3>
+                                    <p class="text-sm text-gray-400">7 pages included</p>
+                                </div>
+                                <div class="text-amber-400 font-bold">$200</div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Number of Pages Control -->
+                    <section class="card p-6 mb-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-semibold mb-2">Number of Pages</h2>
+                                <p class="text-gray-400 text-sm">Additional pages beyond included ones</p>
+                                <p id="pages-info" class="text-xs text-amber-400 mt-1 hidden">Landing page includes only 1 page</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                                <div class="quantity-control" id="pages-control">
+                                    <button class="quantity-btn decrease-pages">-</button>
+                                    <input type="number" id="pages-count" min="7" value="7" class="quantity-input">
+                                    <button class="quantity-btn increase-pages">+</button>
+                                </div>
+                                <div class="text-gray-400 text-sm">($16 per page)</div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Main Services Grid -->
+                    <section class="card p-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-semibold">Main Services</h2>
+                            <button id="add-more-services" class="text-amber-400 hover:text-amber-300 flex items-center">
+                                <i class="fas fa-plus mr-2"></i> Add More Services
+                            </button>
+                        </div>
+                        <div class="services-grid">
+                            <!-- Services will be dynamically populated here -->
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Right Column - Summary -->
+                <div class="lg:w-5/12">
+                    <div class="card p-6 sticky top-6 h-full">
+                        <h2 class="text-xl font-semibold mb-4">Your Estimated Quote</h2>
+                        
+                        <div class="space-y-4 mb-6 h-[calc(100%-160px)] overflow-y-auto custom-scroll">
+                            <div id="selected-services-list" class="space-y-2">
+                                <!-- Selected services will be listed here -->
+                            </div>
+                            
+                            <div class="border-t border-gray-700 pt-4 space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal" class="font-medium">$0</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                    <span>GST (18%):</span>
+                                    <span id="gst-amount" class="font-medium">$0</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                    <span>Discount:</span>
+                                    <span id="discount-amount" class="font-medium text-green-400">-$0</span>
+                                </div>
+                                
+                                <div class="border-t border-gray-700 pt-3">
+                                    <div class="flex justify-between text-lg font-bold">
+                                        <span>Total:</span>
+                                        <span id="total-amount" class="text-amber-400">$0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button 
+                            id="submit-quote" 
+                            class="w-full py-3 black-button font-bold rounded-lg transition-colors pay-button flex items-center justify-center disabled:bg-gray-600 disabled:cursor-not-allowed"
+                            disabled
+                        >
+                            <i class="fas fa-paper-plane mr-2"></i> Submit Quote
+                        </button>
+                        
+                        <div class="text-xs text-gray-400 mt-4 text-center">
+                            <p>This is an estimate. Contact us for a detailed quote.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add More Services Modal -->
+    <div id="add-services-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="flex justify-between items-center p-6 border-b border-gray-700">
+                <h3 class="text-xl font-bold">Add More Services</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="additional-services-grid custom-scroll">
+                <!-- Additional services will be populated here -->
+            </div>
+            
+            <div class="flex justify-end p-6 border-t border-gray-700">
+                <button id="save-services" class="px-6 py-2 black-button rounded-lg transition-colors">
+                    Save Selection
+                </button>
+            </div>
+        </div>
+    </div>
+        <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay hidden">
+        <div class="modal-content max-w-md">
+            <div class="flex justify-between items-center p-6 border-b border-gray-700">
+                <h3 class="text-xl font-bold">Contact Information</h3>
+                <button id="close-contact-modal" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="contact-form" class="p-6 space-y-4">
+                <div>
+                    <label for="user-name" class="block text-sm font-medium mb-1">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="user-name" 
+                        required
+                        placeholder="John Doe"
+                        pattern="[A-Za-z ]+"
+                        title="Please enter only alphabetic characters"
+                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                    >
+                    <p class="text-xs text-gray-400 mt-1">Only alphabetic characters and spaces allowed</p>
+                </div>
+                
+                <div>
+                    <label for="business-name" class="block text-sm font-medium mb-1">Business Name</label>
+                    <input 
+                        type="text" 
+                        id="business-name" 
+                        required
+                        placeholder="Your Business Inc."
+                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                    >
+                </div>
+                
+                <div>
+                    <label for="user-phone" class="block text-sm font-medium mb-1">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="user-phone" 
+                        required
+                        placeholder="1234567890"
+                        pattern="[0-9]+"
+                        title="Please enter only numbers"
+                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                    >
+                    <p class="text-xs text-gray-400 mt-1">Only numbers allowed (no symbols, spaces, or decimals)</p>
+                </div>
+                
+                <div>
+                    <label for="user-email" class="block text-sm font-medium mb-1">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="user-email" 
+                        required
+                        placeholder="john@example.com"
+                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                    >
+                </div>
+                
+                <div class="pt-4">
+                    <button type="submit" class="w-full px-4 py-3 black-button rounded-lg transition-colors font-medium">
+                        Submit Quote Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay hidden">
+        <div class="modal-content max-w-md text-center">
+            <div class="p-6">
+                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Thank You!</h3>
+                <p class="text-gray-300 mb-2">Thank you for your custom plan! Your request is submitted and our team will contact you soon.</p>
+                <p class="text-gray-300 mb-4" id="countdown-message">in <span id="countdown">5</span> seconds you will be redirected to home page</p>
+                <button id="close-success" class="px-6 py-2 black-button rounded-lg transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Service data with prices in dollars
+        const mainServices = [
+            {
+                id: 1,
+                name: "Custom Design",
+                description: "Unique design from scratch",
+                price: 13,
+                type: "quantity",
+                unit: "per hour",
+                min: 0,
+                icon: "fas fa-palette"
+            },
+            {
+                id: 2,
+                name: "Responsive Development",
+                description: "Mobile-optimized development",
+                price: 80,
+                type: "toggle",
+                icon: "fas fa-mobile-alt"
+            },
+            {
+                id: 3,
+                name: "CMS Integration",
+                description: "WordPress integration",
+                price: 107,
+                type: "toggle",
+                icon: "fab fa-wordpress"
+            },
+            {
+                id: 4,
+                name: "E-commerce Setup",
+                description: "Online store development",
+                price: 240,
+                type: "toggle",
+                icon: "fas fa-shopping-cart",
+                additional: {
+                    type: "quantity",
+                    label: "Products",
+                    price: 7,
+                    unit: "per product",
+                    min: 0
+                }
+            },
+            {
+                id: 5,
+                name: "SEO Basic Setup",
+                description: "Search engine optimization",
+                price: 47,
+                type: "toggle",
+                icon: "fas fa-search"
+            },
+            {
+                id: 6,
+                name: "Hosting with SSL",
+                description: "Website hosting with SSL",
+                price: 7,
+                type: "hosting",
+                unit: "per month",
+                min: 1,
+                icon: "fas fa-server",
+                sslOptions: [
+                    { label: "Free SSL", value: 0, default: true },
+                    { label: "Managed SSL", value: 16 }
+                ]
+            }
+        ];
+
+        const additionalServices = [
+            {
+                id: 7,
+                name: "Content Writing",
+                description: "Professional content creation",
+                price: 3,
+                type: "quantity",
+                unit: "per page",
+                min: 0,
+                icon: "fas fa-pen"
+            },
+            {
+                id: 8,
+                name: "Speed Optimization",
+                description: "Performance optimization",
+                price: 60,
+                type: "toggle",
+                icon: "fas fa-tachometer-alt"
+            },
+            {
+                id: 9,
+                name: "Social Media Integration",
+                description: "Connect social media platforms",
+                price: 27,
+                type: "toggle",
+                icon: "fas fa-share-alt"
+            },
+            {
+                id: 10,
+                name: "Payment Gateway",
+                description: "Online payment integration",
+                price: 67,
+                type: "toggle",
+                icon: "fas fa-credit-card"
+            },
+            {
+                id: 11,
+                name: "Blog Setup",
+                description: "Blog section with CMS",
+                price: 40,
+                type: "toggle",
+                icon: "fas fa-blog"
+            },
+            {
+                id: 12,
+                name: "Multilingual Support",
+                description: "Multiple language support",
+                price: 53,
+                type: "toggle",
+                icon: "fas fa-language"
+            },
+            {
+                id: 13,
+                name: "Advanced Analytics",
+                description: "Detailed analytics setup",
+                price: 33,
+                type: "toggle",
+                icon: "fas fa-chart-line"
+            },
+            {
+                id: 14,
+                name: "Maintenance Package",
+                description: "Ongoing website maintenance",
+                price: 27,
+                type: "maintenance",
+                unit: "per month",
+                min: 1,
+                icon: "fas fa-tools"
+            },
+            {
+                id: 15,
+                name: "Security Setup",
+                description: "Advanced security features",
+                price: 47,
+                type: "toggle",
+                icon: "fas fa-shield-alt"
+            },
+            {
+                id: 16,
+                name: "Custom Forms",
+                description: "Advanced form development",
+                price: 20,
+                type: "quantity",
+                unit: "per form",
+                min: 0,
+                icon: "fas fa-list-alt"
+            },
+            {
+                id: 17,
+                name: "API Integration",
+                description: "Third-party API integration",
+                price: 60,
+                type: "toggle",
+                icon: "fas fa-code"
+            },
+            {
+                id: 18,
+                name: "Database Setup",
+                description: "Custom database design",
+                price: 80,
+                type: "toggle",
+                icon: "fas fa-database"
+            },
+            {
+                id: 19,
+                name: "Email Marketing",
+                description: "Email campaign setup",
+                price: 40,
+                type: "toggle",
+                icon: "fas fa-envelope"
+            },
+            {
+                id: 20,
+                name: "Branding Package",
+                description: "Logo and brand identity",
+                price: 67,
+                type: "toggle",
+                icon: "fas fa-paint-brush"
+            }
+        ];
+
+        // App state
+        let state = {
+            package: "full", // "landing" or "full"
+            pages: 0,
+            services: [...mainServices.map(service => ({
+                ...service,
+                selected: false,
+                quantity: service.min || 0,
+                selectedOption: service.options ? 
+                    (service.options.find(opt => opt.default)?.value || service.options[0].value) : null,
+                months: 12,
+                sslOption: service.sslOptions ? 
+                    (service.sslOptions.find(opt => opt.default)?.value || service.sslOptions[0].value) : null
+            }))],
+            additionalServices: additionalServices.map(service => ({
+                ...service,
+                selected: false,
+                quantity: service.min || 0,
+                selectedOption: service.options ? 
+                    (service.options.find(opt => opt.default)?.value || service.options[0].value) : null,
+                months: 12,
+                sslOption: service.sslOptions ? 
+                    (service.sslOptions.find(opt => opt.default)?.value || service.sslOptions[0].value) : null
+            })),
+            gstRate: 18,
+            discountCode: "",
+            discountAmount: 0,
+            subtotal: 0,
+            gstAmount: 0,
+            total: 0
+        };
+
+        // DOM Elements
+        const servicesGrid = document.querySelector('.services-grid');
+        const additionalServicesGrid = document.querySelector('.additional-services-grid');
+        const selectedServicesList = document.getElementById('selected-services-list');
+        const subtotalElement = document.getElementById('subtotal');
+        const gstAmountElement = document.getElementById('gst-amount');
+        const discountAmountElement = document.getElementById('discount-amount');
+        const totalAmountElement = document.getElementById('total-amount');
+        const submitButton = document.getElementById('submit-quote');
+        const pagesCountInput = document.getElementById('pages-count');
+        const packageOptions = document.querySelectorAll('.package-option');
+        const addMoreServicesBtn = document.getElementById('add-more-services');
+        const addServicesModal = document.getElementById('add-services-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const saveServicesBtn = document.getElementById('save-services');
+        const contactModal = document.getElementById('contact-modal');
+        const closeContactModalBtn = document.getElementById('close-contact-modal');
+        const successModal = document.getElementById('success-modal');
+        const closeSuccessBtn = document.getElementById('close-success');
+        const contactForm = document.getElementById('contact-form');
+        const pagesControl = document.getElementById('pages-control');
+        const pagesInfo = document.getElementById('pages-info');
+        const countdownElement = document.getElementById('countdown');
+        const countdownMessage = document.getElementById('countdown-message');
+
+        // Initialize the app
+        function init() {
+            renderMainServices();
+            renderAdditionalServices();
+            setupEventListeners();
+            updateTotals();
+            updatePagesControl();
+        }
+
+        // Render main services
+        function renderMainServices() {
+            servicesGrid.innerHTML = '';
+            
+            state.services.forEach(service => {
+                const serviceElement = createServiceElement(service, false);
+                servicesGrid.appendChild(serviceElement);
+            });
+        }
+
+        // Render additional services
+        function renderAdditionalServices() {
+            additionalServicesGrid.innerHTML = '';
+            
+            state.additionalServices.forEach(service => {
+                const serviceElement = createServiceElement(service, true);
+                additionalServicesGrid.appendChild(serviceElement);
+            });
+        }
+
+        // Create service element
+        function createServiceElement(service, isAdditional) {
+            const serviceCard = document.createElement('div');
+            serviceCard.className = `card p-4 service-card transition-all duration-200 ${service.selected ? 'service-selected' : ''}`;
+            serviceCard.setAttribute('data-service-id', service.id);
+            
+            let controlHTML = '';
+            
+            switch(service.type) {
+                case 'quantity':
+                    controlHTML = `
+                        <div class="quantity-control mt-2">
+                            <button class="quantity-btn decrease-quantity">-</button>
+                            <input type="number" min="${service.min || 0}" value="${service.quantity}" class="quantity-input" data-service-id="${service.id}">
+                            <button class="quantity-btn increase-quantity">+</button>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'toggle':
+                    controlHTML = `
+                        <label class="inline-flex items-center cursor-pointer mt-2">
+                            <input 
+                                type="checkbox" 
+                                ${service.selected ? 'checked' : ''}
+                                class="sr-only peer"
+                                data-service-id="${service.id}"
+                            >
+                            <div class="relative w-11 h-6 bg-gray-700 peer-focus:ring-amber-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-600"></div>
+                            <span class="ml-2 text-sm">${service.selected ? 'Yes' : 'No'}</span>
+                        </label>
+                    `;
+                    break;
+                    
+                case 'hosting':
+                    controlHTML = `
+                        <div class="space-y-2 mt-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <label class="mr-2 text-sm text-gray-400">Months:</label>
+                                    <input 
+                                        type="number" 
+                                        min="${service.min || 1}" 
+                                        value="${service.months}" 
+                                        class="w-16 px-2 py-1 rounded number-input text-center"
+                                        data-service-id="${service.id}"
+                                    >
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-sm text-gray-400 mr-2">SSL:</span>
+                                <select 
+                                    class="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm"
+                                    data-service-id="${service.id}"
+                                >
+                                    ${service.sslOptions.map(option => `
+                                        <option value="${option.value}" ${service.sslOption === option.value ? 'selected' : ''}>
+                                            ${option.label}
+                                        </option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'maintenance':
+                    controlHTML = `
+                        <div class="space-y-2 mt-2">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input 
+                                    type="checkbox" 
+                                    ${service.selected ? 'checked' : ''}
+                                    class="sr-only peer"
+                                    data-service-id="${service.id}"
+                                >
+                                <div class="relative w-11 h-6 bg-gray-700 peer-focus:ring-amber-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-600"></div>
+                                <span class="ml-2 text-sm">${service.selected ? 'Yes' : 'No'}</span>
+                            </label>
+                            ${service.selected ? `
+                                <div class="flex items-center">
+                                    <label class="mr-2 text-sm text-gray-400">Months:</label>
+                                    <input 
+                                        type="number" 
+                                        min="${service.min || 1}" 
+                                        value="${service.months}" 
+                                        class="w-16 px-2 py-1 rounded number-input text-center"
+                                        data-service-id="${service.id}"
+                                    >
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                    break;
+            }
+            
+            // Add additional controls if service has them (like e-commerce products)
+            if (service.additional && service.selected) {
+                controlHTML += `
+                    <div class="mt-2 flex items-center">
+                        <label class="mr-2 text-sm text-gray-400">${service.additional.label}:</label>
+                        <div class="quantity-control">
+                            <button class="quantity-btn decrease-additional">-</button>
+                            <input type="number" min="${service.additional.min || 0}" value="${service.quantity || 1}" class="quantity-input" data-service-id="${service.id}" data-additional="true">
+                            <button class="quantity-btn increase-additional">+</button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            serviceCard.innerHTML = `
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center mb-2">
+                        <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                            <i class="${service.icon} text-white"></i>
+                        </div>
+                        <h3 class="font-semibold">${service.name}</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-2 flex-grow">${service.description}</p>
+                    <p class="text-sm text-amber-400 mb-2">$${service.price} ${service.unit || ''}</p>
+                    ${controlHTML}
+                </div>
+            `;
+            
+            return serviceCard;
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Package selection
+            packageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const packageType = this.getAttribute('data-package');
+                    selectPackage(packageType);
+                });
+            });
+            
+            // Pages count controls
+            document.querySelector('.decrease-pages').addEventListener('click', () => {
+                if (state.package === 'full') {
+                    const currentValue = parseInt(pagesCountInput.value);
+                    if (currentValue > 7) {
+                        pagesCountInput.value = currentValue - 1;
+                        state.pages = pagesCountInput.value;
+                        updateTotals();
+                        updatePagesControl();
+                    }
+                }
+            });
+            
+            document.querySelector('.increase-pages').addEventListener('click', () => {
+                if (state.package === 'full') {
+                    const currentValue = parseInt(pagesCountInput.value);
+                    pagesCountInput.value = currentValue + 1;
+                    state.pages = pagesCountInput.value;
+                    updateTotals();
+                    updatePagesControl();
+                }
+            });
+            
+            pagesCountInput.addEventListener('input', function() {
+                if (state.package === 'full') {
+                    const value = parseInt(this.value) || 7;
+                    this.value = Math.max(7, value);
+                    state.pages = this.value;
+                    updateTotals();
+                    updatePagesControl();
+                }
+            });
+            
+            // Service controls
+            document.addEventListener('click', handleServiceClick);
+            document.addEventListener('input', handleServiceInput);
+            document.addEventListener('change', handleServiceChange);
+            
+            // Add more services modal
+            addMoreServicesBtn.addEventListener('click', () => {
+                addServicesModal.classList.remove('hidden');
+            });
+            
+            closeModalBtn.addEventListener('click', () => {
+                addServicesModal.classList.add('hidden');
+            });
+            
+            saveServicesBtn.addEventListener('click', () => {
+                addServicesModal.classList.add('hidden');
+            });
+            
+            // Submit button
+            submitButton.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+            });
+            
+            // Contact modal
+            closeContactModalBtn.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
+            
+            // Success modal
+            closeSuccessBtn.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+                clearInterval(countdownInterval);
+            });
+            
+            // Contact form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get contact information
+                const contactInfo = {
+                    name: document.getElementById('user-name').value,
+                    business: document.getElementById('business-name').value,
+                    phone: document.getElementById('user-phone').value,
+                    email: document.getElementById('user-email').value
+                };
+                
+                // Generate and download PDF
+                generatePDF(contactInfo);
+                
+                // Close contact modal and show success
+                contactModal.classList.add('hidden');
+                successModal.classList.remove('hidden');
+                
+                // Start the countdown
+                startCountdown();
+            });
+        }
+
+        // Generate PDF with quote details
+        function generatePDF(contactInfo) {
+            // Create a new jsPDF instance
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Set document properties
+            doc.setProperties({
+                title: 'Web Design Quote',
+                subject: 'Quote for web design services',
+                author: 'Web Design Quote Calculator',
+                keywords: 'web design, quote, services',
+                creator: 'Web Design Quote Calculator'
+            });
+            
+            // Add header
+            doc.setFontSize(20);
+            doc.setTextColor(41, 128, 185);
+            doc.text('Web Design Quote', 20, 30);
+            
+            // Add contact information
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Contact Information:', 20, 50);
+            doc.text(`Name: ${contactInfo.name}`, 20, 60);
+            doc.text(`Business: ${contactInfo.business}`, 20, 70);
+            doc.text(`Phone: ${contactInfo.phone}`, 20, 80);
+            doc.text(`Email: ${contactInfo.email}`, 20, 90);
+            
+            // Add quote details header
+            doc.setFontSize(16);
+            doc.setTextColor(41, 128, 185);
+            doc.text('Selected Services & Pricing', 20, 110);
+            
+            // Add package details
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            let yPosition = 125;
+            
+            // Package
+            const packageName = state.package === 'landing' ? 'Landing Page' : 'Full Website (7 pages)';
+            const packageCost = state.package === 'landing' ? 67 : 200;
+            doc.text(`${packageName}: $${packageCost}`, 20, yPosition);
+            yPosition += 10;
+            
+            // Additional pages
+            if (state.package === 'full' && state.pages > 7) {
+                const pagesCost = (state.pages - 7) * 16;
+                doc.text(`Additional Pages (${state.pages - 7}): $${pagesCost}`, 20, yPosition);
+                yPosition += 10;
+            }
+            
+            // Main services
+            state.services.forEach(service => {
+                const serviceTotal = calculateServiceTotal(service);
+                if (serviceTotal > 0) {
+                    doc.text(`${service.name}: $${serviceTotal}`, 20, yPosition);
+                    yPosition += 10;
+                    
+                    // Add details for quantity-based services
+                    if (service.type === 'quantity' && service.quantity > 0) {
+                        doc.text(`  - ${service.quantity} ${service.unit} at $${service.price} each`, 25, yPosition);
+                        yPosition += 7;
+                    }
+                    
+                    // Add details for hosting
+                    if (service.type === 'hosting') {
+                        doc.text(`  - ${service.months} months hosting at $${service.price}/month`, 25, yPosition);
+                        yPosition += 7;
+                        const sslOption = service.sslOptions.find(opt => opt.value === service.sslOption);
+                        if (sslOption && sslOption.value > 0) {
+                            doc.text(`  - ${sslOption.label}: $${sslOption.value}`, 25, yPosition);
+                            yPosition += 7;
+                        }
+                    }
+                    
+                    // Add details for e-commerce products
+                    if (service.additional && service.selected) {
+                        doc.text(`  - ${service.quantity} ${service.additional.label} at $${service.additional.price} each`, 25, yPosition);
+                        yPosition += 7;
+                    }
+                }
+            });
+            
+            // Additional services
+            state.additionalServices.forEach(service => {
+                const serviceTotal = calculateServiceTotal(service);
+                if (serviceTotal > 0) {
+                    doc.text(`${service.name}: $${serviceTotal}`, 20, yPosition);
+                    yPosition += 10;
+                    
+                    // Add details for quantity-based services
+                    if (service.type === 'quantity' && service.quantity > 0) {
+                        doc.text(`  - ${service.quantity} ${service.unit} at $${service.price} each`, 25, yPosition);
+                        yPosition += 7;
+                    }
+                    
+                    // Add details for maintenance
+                    if (service.type === 'maintenance' && service.selected) {
+                        doc.text(`  - ${service.months} months maintenance at $${service.price}/month`, 25, yPosition);
+                        yPosition += 7;
+                    }
+                }
+            });
+            
+            // Add summary
+            yPosition += 10;
+            doc.setFontSize(14);
+            doc.setTextColor(41, 128, 185);
+            doc.text('Summary', 20, yPosition);
+            
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            yPosition += 10;
+            doc.text(`Subtotal: $${state.subtotal}`, 20, yPosition);
+            yPosition += 10;
+            doc.text(`GST (${state.gstRate}%): $${state.gstAmount.toFixed(2)}`, 20, yPosition);
+            yPosition += 10;
+            doc.text(`Discount: -$${state.discountAmount}`, 20, yPosition);
+            yPosition += 10;
+            doc.setFontSize(16);
+            doc.setTextColor(231, 76, 60);
+            doc.text(`Total: $${state.total.toFixed(2)}`, 20, yPosition);
+            
+            // Add footer
+            doc.setFontSize(10);
+            doc.setTextColor(128, 128, 128);
+            doc.text('This is an estimate. Contact us for a detailed quote.', 20, 280);
+            doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 285);
+            
+            // Save the PDF
+            const fileName = `Web_Design_Quote_${contactInfo.business.replace(/\s+/g, '_')}.pdf`;
+            doc.save(fileName);
+        }
+
+        // Start countdown for redirection
+        let countdownInterval;
+        function startCountdown() {
+            let countdownValue = 5;
+            countdownElement.textContent = countdownValue;
+            
+            countdownInterval = setInterval(() => {
+                countdownValue--;
+                countdownElement.textContent = countdownValue;
+                
+                if (countdownValue <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to home page (you can change the URL as needed)
+                    window.location.href = '/';
+                }
+            }, 1000);
+        }
+
+        // Update pages control based on package selection
+        function updatePagesControl() {
+            if (state.package === 'landing') {
+                pagesControl.classList.add('pages-control-disabled');
+                pagesCountInput.value = 1;
+                pagesCountInput.min = 1;
+                pagesCountInput.disabled = true;
+                pagesInfo.classList.remove('hidden');
+                document.querySelector('.decrease-pages').disabled = true;
+                document.querySelector('.increase-pages').disabled = true;
+            } else {
+                pagesControl.classList.remove('pages-control-disabled');
+                pagesCountInput.value = Math.max(7, parseInt(pagesCountInput.value) || 7);
+                pagesCountInput.min = 7;
+                pagesCountInput.disabled = false;
+                pagesInfo.classList.add('hidden');
+                
+                // Enable/disable minus button based on page count
+                document.querySelector('.decrease-pages').disabled = parseInt(pagesCountInput.value) <= 7;
+                document.querySelector('.increase-pages').disabled = false;
+            }
+        }
+
+        // Handle service clicks
+        function handleServiceClick(e) {
+            // Service selection
+            if (e.target.closest('.service-card')) {
+                const serviceCard = e.target.closest('.service-card');
+                const serviceId = parseInt(serviceCard.getAttribute('data-service-id'));
+                
+                // Find service in main or additional services
+                let service = state.services.find(s => s.id === serviceId);
+                let isMainService = true;
+                
+                if (!service) {
+                    service = state.additionalServices.find(s => s.id === serviceId);
+                    isMainService = false;
+                }
+                
+                if (service) {
+                    // For toggle services, toggle selection
+                    if (service.type === 'toggle' || service.type === 'maintenance') {
+                        service.selected = !service.selected;
+                        
+                        // Update UI
+                        if (isMainService) {
+                            renderMainServices();
+                        } else {
+                            renderAdditionalServices();
+                        }
+                        
+                        updateTotals();
+                    }
+                }
+            }
+            
+            // Quantity buttons
+            if (e.target.classList.contains('quantity-btn')) {
+                const serviceId = parseInt(e.target.closest('[data-service-id]').getAttribute('data-service-id'));
+                const isAdditional = e.target.hasAttribute('data-additional') || 
+                                    e.target.classList.contains('increase-additional') || 
+                                    e.target.classList.contains('decrease-additional');
+                
+                // Find service
+                let service = state.services.find(s => s.id === serviceId);
+                let isMainService = true;
+                
+                if (!service) {
+                    service = state.additionalServices.find(s => s.id === serviceId);
+                    isMainService = false;
+                }
+                
+                if (service) {
+                    const input = document.querySelector(`.quantity-input[data-service-id="${serviceId}"]${isAdditional ? '[data-additional="true"]' : ''}`);
+                    
+                    if (input) {
+                        let currentValue = parseInt(input.value) || (service.min || 0);
+                        
+                        if (e.target.classList.contains('increase-quantity') || e.target.classList.contains('increase-additional')) {
+                            input.value = currentValue + 1;
+                        } else if (e.target.classList.contains('decrease-quantity') || e.target.classList.contains('decrease-additional')) {
+                            if (currentValue > (service.min || 0)) {
+                                input.value = currentValue - 1;
+                            }
+                        }
+                        
+                        // Update service state
+                        if (isAdditional) {
+                            service.quantity = parseInt(input.value);
+                        } else {
+                            if (service.type === 'quantity') {
+                                service.quantity = parseInt(input.value);
+                            } else if (service.additional) {
+                                service.quantity = parseInt(input.value);
+                            }
+                        }
+                        
+                        updateTotals();
+                    }
+                }
+            }
+        }
+
+        // Handle service input changes
+        function handleServiceInput(e) {
+            if (e.target.classList.contains('quantity-input')) {
+                const serviceId = parseInt(e.target.getAttribute('data-service-id'));
+                const isAdditional = e.target.hasAttribute('data-additional');
+                
+                // Find service
+                let service = state.services.find(s => s.id === serviceId);
+                
+                if (!service) {
+                    service = state.additionalServices.find(s => s.id === serviceId);
+                }
+                
+                if (service) {
+                    const value = parseInt(e.target.value) || (service.min || 0);
+                    
+                    if (isAdditional) {
+                        service.quantity = value;
+                    } else {
+                        if (service.type === 'quantity') {
+                            service.quantity = value;
+                        } else if (service.additional) {
+                            service.quantity = value;
+                        }
+                    }
+                    
+                    updateTotals();
+                }
+            }
+        }
+
+        // Handle service change events
+        function handleServiceChange(e) {
+            if (e.target.type === 'checkbox' && e.target.closest('.service-card')) {
+                const serviceId = parseInt(e.target.getAttribute('data-service-id'));
+                
+                // Find service
+                let service = state.services.find(s => s.id === serviceId);
+                let isMainService = true;
+                
+                if (!service) {
+                    service = state.additionalServices.find(s => s.id === serviceId);
+                    isMainService = false;
+                }
+                
+                if (service) {
+                    service.selected = e.target.checked;
+                    
+                    // Update UI
+                    if (isMainService) {
+                        renderMainServices();
+                    } else {
+                        renderAdditionalServices();
+                    }
+                    
+                    updateTotals();
+                }
+            }
+            
+            if (e.target.tagName === 'SELECT' && e.target.closest('.service-card')) {
+                const serviceId = parseInt(e.target.getAttribute('data-service-id'));
+                
+                // Find service
+                let service = state.services.find(s => s.id === serviceId);
+                
+                if (!service) {
+                    service = state.additionalServices.find(s => s.id === serviceId);
+                }
+                
+                if (service) {
+                    service.sslOption = parseInt(e.target.value);
+                    updateTotals();
+                }
+            }
+        }
+
+        // Select package
+        function selectPackage(packageType) {
+            state.package = packageType;
+            
+            // Update UI
+            packageOptions.forEach(option => {
+                if (option.getAttribute('data-package') === packageType) {
+                    option.classList.add('selected');
+                } else {
+                    option.classList.remove('selected');
+                }
+            });
+            
+            updatePagesControl();
+            updateTotals();
+        }
+
+        // Calculate service total
+        function calculateServiceTotal(service) {
+            let serviceTotal = 0;
+            
+            if (!service.selected && service.type !== 'quantity') return 0;
+            
+            switch(service.type) {
+                case 'quantity':
+                    serviceTotal = service.price * service.quantity;
+                    break;
+                    
+                case 'toggle':
+                case 'maintenance':
+                    serviceTotal = service.selected ? service.price : 0;
+                    break;
+                    
+                case 'hosting':
+                    serviceTotal = (service.price * service.months) + service.sslOption;
+                    break;
+            }
+            
+            // Add additional costs (like e-commerce products)
+            if (service.additional && service.selected) {
+                serviceTotal += service.additional.price * service.quantity;
+            }
+            
+            return serviceTotal;
+        }
+
+        // Update all totals
+        function updateTotals() {
+            // Calculate package cost
+            const packageCost = state.package === 'landing' ? 67 : 200;
+            
+            // Calculate additional pages cost
+            const pagesCost = state.package === 'full' ? (Math.max(0, state.pages - 7)) * 16 : 0;
+            
+            // Calculate services cost
+            const servicesCost = state.services.reduce((total, service) => {
+                return total + calculateServiceTotal(service);
+            }, 0);
+            
+            // Calculate additional services cost
+            const additionalServicesCost = state.additionalServices.reduce((total, service) => {
+                return total + calculateServiceTotal(service);
+            }, 0);
+            
+            // Calculate subtotal
+            state.subtotal = packageCost + pagesCost + servicesCost + additionalServicesCost;
+            
+            // Calculate GST
+            state.gstAmount = state.subtotal * (state.gstRate / 100);
+            
+            // Calculate total
+            state.total = state.subtotal + state.gstAmount - state.discountAmount;
+            
+            // Update UI
+            subtotalElement.textContent = `$${state.subtotal.toLocaleString()}`;
+            gstAmountElement.textContent = `$${state.gstAmount.toLocaleString()}`;
+            discountAmountElement.textContent = `-$${state.discountAmount.toLocaleString()}`;
+            totalAmountElement.textContent = `$${state.total.toLocaleString()}`;
+            
+            // Update selected services list
+            updateSelectedServicesList();
+            
+            // Enable/disable submit button
+            submitButton.disabled = state.total <= 0;
+        }
+
+        // Update selected services list
+        function updateSelectedServicesList() {
+            selectedServicesList.innerHTML = '';
+            
+            // Add package
+            const packageName = state.package === 'landing' ? 'Landing Page' : 'Full Website (7 pages)';
+            const packageCost = state.package === 'landing' ? 67 : 200;
+            
+            if (packageCost > 0) {
+                const packageItem = document.createElement('div');
+                packageItem.className = 'flex justify-between text-sm';
+                packageItem.innerHTML = `
+                    <span>${packageName}</span>
+                    <span>$${packageCost.toLocaleString()}</span>
+                `;
+                selectedServicesList.appendChild(packageItem);
+            }
+            
+            // Add additional pages
+            if (state.package === 'full' && state.pages > 7) {
+                const pagesCost = (state.pages - 7) * 16;
+                const pagesItem = document.createElement('div');
+                pagesItem.className = 'flex justify-between text-sm';
+                pagesItem.innerHTML = `
+                    <span>Additional Pages (${state.pages - 7})</span>
+                    <span>$${pagesCost.toLocaleString()}</span>
+                `;
+                selectedServicesList.appendChild(pagesItem);
+            }
+            
+            // Add main services
+            state.services.forEach(service => {
+                const serviceTotal = calculateServiceTotal(service);
+                if (serviceTotal > 0) {
+                    const serviceItem = document.createElement('div');
+                    serviceItem.className = 'flex justify-between text-sm';
+                    serviceItem.innerHTML = `
+                        <span>${service.name}</span>
+                        <span>$${serviceTotal.toLocaleString()}</span>
+                    `;
+                    selectedServicesList.appendChild(serviceItem);
+                }
+            });
+            
+            // Add additional services
+            state.additionalServices.forEach(service => {
+                const serviceTotal = calculateServiceTotal(service);
+                if (serviceTotal > 0) {
+                    const serviceItem = document.createElement('div');
+                    serviceItem.className = 'flex justify-between text-sm';
+                    serviceItem.innerHTML = `
+                        <span>${service.name}</span>
+                        <span>$${serviceTotal.toLocaleString()}</span>
+                    `;
+                    selectedServicesList.appendChild(serviceItem);
+                }
+            });
+            
+            // If no services selected, show message
+            if (selectedServicesList.children.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'text-gray-400 text-sm text-center py-4';
+                emptyMessage.textContent = 'No services selected yet';
+                selectedServicesList.appendChild(emptyMessage);
+            }
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+        // Enhanced input validation for contact form
+document.addEventListener('DOMContentLoaded', function() {
+    const userNameInput = document.getElementById('user-name');
+    const userPhoneInput = document.getElementById('user-phone');
+    
+    // Real-time validation for name field (only alphabets and spaces)
+    if (userNameInput) {
+        userNameInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^A-Za-z ]/g, '');
+        });
+        
+        userNameInput.addEventListener('keypress', function(e) {
+            const char = String.fromCharCode(e.which);
+            if (!/[A-Za-z ]/.test(char)) {
+                e.preventDefault();
+            }
+        });
+    }
+    
+    // Real-time validation for phone field (only numbers)
+    if (userPhoneInput) {
+        userPhoneInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        
+        userPhoneInput.addEventListener('keypress', function(e) {
+            const char = String.fromCharCode(e.which);
+            if (!/[0-9]/.test(char)) {
+                e.preventDefault();
+            }
+        });
+    }
+    
+    // Enhanced form submission validation
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // Additional validation before submission
+            const nameValid = /^[A-Za-z ]+$/.test(userNameInput.value);
+            const phoneValid = /^[0-9]+$/.test(userPhoneInput.value);
+            
+            if (!nameValid || !phoneValid) {
+                e.preventDefault();
+                alert('Please check your inputs:\n- Name should contain only letters and spaces\n- Phone should contain only numbers');
+                return false;
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html> 

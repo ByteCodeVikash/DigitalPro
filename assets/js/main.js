@@ -58,7 +58,7 @@ App.initNavigation = function() {
   window.addEventListener('scroll', throttle(() => {
     const scrollTop = window.pageYOffset;
     
-    if (scrollTop > 100) {
+    if (scrollTop > 50) {
       this.navbar.classList.add('scrolled');
     } else {
       this.navbar.classList.remove('scrolled');
@@ -78,7 +78,7 @@ App.initNavigation = function() {
     });
     
     // Close mobile menu when clicking nav links
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .btn-nav-secondary, .btn-nav-primary');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (this.isMobile) {
@@ -677,6 +677,33 @@ if ('performance' in window) {
     }, 0);
   });
 }
+
+// ===== FAQ ACCORDION FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item-modern');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question-modern');
+    const answer = item.querySelector('.faq-answer-modern');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all FAQ items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+        const otherAnswer = otherItem.querySelector('.faq-answer-modern');
+        otherAnswer.style.display = 'none';
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.display = 'block';
+      }
+    });
+  });
+});
 
 // Export for use in other modules
 window.App = App;
